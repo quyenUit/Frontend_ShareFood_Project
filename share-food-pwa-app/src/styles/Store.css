@@ -1,0 +1,21 @@
+.store-food{
+    margin: 1rem 0.5rem;
+    border-top: 2px solid #B09B71;
+    padding-top: 1rem;
+}
+
+h3{
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #665A48;
+}
+
+p{
+    color: #865439;
+}
+
+.near-food{
+    border-bottom: 2px solid #B09B71;
+    margin: 2rem 10rem;
+    padding: 1rem 0;
+}

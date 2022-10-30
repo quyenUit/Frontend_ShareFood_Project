@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&family=Montserrat:wght@300;500;700&family=Nunito+Sans:wght@600;800&display=swap');
+.navbar{
+    height: 9rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #FFF8EA;
+}
+
+.nav-link{
+    color: #665A48;
+    border-right: 2px solid #B09B71;
+    width: 9rem;
+    padding: 0;
+    text-align: center;
+}
+.container-fluid{
+    border-bottom: 2px solid #B09B71
+}
+
+.line-navbar{
+    background-color: #FFF8EA;
+    height: 1rem;
+}
