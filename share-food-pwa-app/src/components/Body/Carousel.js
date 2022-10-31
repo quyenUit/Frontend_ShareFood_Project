@@ -14,12 +14,11 @@ function CarouselFood() {
                 alt="First slide"
                 />
                 <Carousel.Caption>
-                    <h1 className="">
-                        <span></span>
-                        <div class="message">
-                            <div class="word1">Hãy liên hệ chúng tôi</div>
+                    <div id="container">
+                        <div id="flip">
+                            <div><div>Hãy liên hệ chúng tôi</div></div>
                         </div>
-                    </h1>
+                    </div>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item interval={8000}>
@@ -28,12 +27,11 @@ function CarouselFood() {
                 alt="Second slide"
                 />
                 <Carousel.Caption>
-                <h1 className="">
-                    <span></span>
-                    <div class="message">
-                        <div class="word1">Hãy liên hệ chúng tôi</div>
+                    <div id="container">
+                        <div id="flip">
+                            <div><div>Hãy liên hệ chúng tôi</div></div>
+                        </div>
                     </div>
-                </h1>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

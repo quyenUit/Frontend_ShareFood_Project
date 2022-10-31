@@ -4,7 +4,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     font-weight: bold;
-    background-color: #FFF8EA;
+    background-color: #EBD8C3;
 }
 
 .nav-link{
@@ -15,10 +15,32 @@
     text-align: center;
 }
 .container-fluid{
-    border-bottom: 2px solid #B09B71
+    border-bottom: 2px solid #B09B71;
+}
+
+.nav-item:hover{
+    color: #A47E3B;
+    transition: 0.7s;
 }
 
 .line-navbar{
     background-color: #FFF8EA;
     height: 1rem;
+}
+
+.button-navbar{
+    position: absolute;
+    right: 0;
+    margin-right: 1rem;
+}
+
+.btn{
+    margin: 0 0.3rem;
+    background-color: #CEAB93;
+    border: 0px;
+    color: #665A48;
+    font-weight: bold;
+}
+.btn:hover{
+    background-color: #EEC373;
 }

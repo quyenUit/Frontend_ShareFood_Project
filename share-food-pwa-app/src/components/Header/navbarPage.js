@@ -22,12 +22,16 @@ function NavbarPage(){
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="navbar justify-content-center flex-grow-1 pe-3">
-                  <Nav.Link class="nav-item" href="#action1">Trang chủ</Nav.Link>
-                  <Nav.Link class="nav-item" href="#action2">Tin Food</Nav.Link>
+                <Nav className="navbar justify-content-center flex-grow-1 pe-3">                  
+                  <Nav.Link className="nav-item" href="#action1">Trang chủ</Nav.Link>
+                  <Nav.Link className="nav-item" href="#action2">Tin Food</Nav.Link>
                   <img style={{width: "6rem", margin:"0 2rem"}} src={brandLogo}></img>
-                  <Nav.Link class="nav-item" href="#action2">Đăng Tin</Nav.Link>
-                  <Nav.Link class="nav-item" href="#action2">Tin nhắn</Nav.Link>
+                  <Nav.Link className="nav-item" href="#action2">Đăng Tin</Nav.Link>
+                  <Nav.Link className="nav-item" href="#action2">Tin nhắn</Nav.Link>
+                  <div className="button-navbar">
+                    <button className="btn btn-primary login-button">Đăng nhập</button>
+                    <button className="btn btn-primary">Đăng kí</button>
+                  </div>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
