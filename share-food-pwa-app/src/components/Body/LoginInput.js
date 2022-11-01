@@ -4,8 +4,32 @@ import BrandLogin from "../../images/brand-login1.jpg";
 import BrandLogin1 from "../../images/brand-login2.jpg";
 import BrandLogin2 from "../../images/brand-login3.jpg";
 import Carousel from 'react-bootstrap/Carousel';
-
+import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
+import { useState } from 'react';
 const LoginInput = () => {
+    const [Email, setEmail] = useState("");
+    const [Password, setPassword] = useState("");
+    const [loginStatus, setLoginStatus] = useState(false);
+    const navigate = useNavigate();
+    const HandleSubmit = async(event) =>{
+        event.preventDefault();
+        ////http://localhost:3001/signup
+        //https://agriculture-app12-api.herokuapp.com/signup
+        await axios.post('http://localhost:3001/signup', {
+            email: Email,
+            password: Password
+        }).then((response => {  //response = findUser = {username, password}  {}
+            if(response){
+                navigate('/', {state: {lname: response.data.lname}});
+            }
+            else{
+                navigate('/login');
+            }
+        })).catch((e)=>{
+            setLoginStatus("Wrong Username / Password. Try again.");
+        })
+    }
   return (
     <section className="login-phase">
         <div className="container-fluid1 h-custom">
@@ -36,20 +60,8 @@ const LoginInput = () => {
                 </Carousel>
             </div>
             <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-            <form actionName="/login" method="post">
+            <form actionName="/login" onSubmit={HandleSubmit}>
                 <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                <p className="lead fw-normal mb-0 me-3">Sign in with</p>
-                <button type="button" class="btn btn-primary btn-floating mx-1">
-                    <i className="fab fa-facebook-f"></i>
-                </button>
-    
-                <button type="button" class="btn btn-primary btn-floating mx-1">
-                    <i className="fab fa-twitter"></i>
-                </button>
-    
-                <button type="button" class="btn btn-primary btn-floating mx-1">
-                    <i className="fab fa-linkedin-in"></i>
-                </button>
                 </div>
     
                 <div className="divider d-flex align-items-center my-4">
@@ -57,14 +69,20 @@ const LoginInput = () => {
                 </div>
     
                 <div className="form-outline mb-4">
-                <input type="text" class="form-control form-control-lg"
-                    placeholder="Enter a valid email address" name="acc_name"></input>
+                <input type="text" className="form-control form-control-lg"
+                    placeholder="Enter a valid email address" name="username" 
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}></input>
                 <label className="form-label" for="form3Example3">Email address</label>
                 </div>
     
                 <div className="form-outline mb-3">
-                <input type="password" class="form-control form-control-lg"
-                    placeholder="Enter password" name="password"></input>
+                <input type="password" className="form-control form-control-lg"
+                    placeholder="Enter password" name="password"        
+                            onChange={(e) => {
+                                setPassword(e.target.value)
+                            }}></input>
                 <label className="form-label" for="form3Example4">Password</label>
                 </div>
     
