@@ -61,12 +61,6 @@ const LoginInput = () => {
             </div>
             <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form actionName="/login" onSubmit={HandleSubmit}>
-                <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                </div>
-    
-                <div className="divider d-flex align-items-center my-4">
-                <p className="text-center fw-bold mx-3 mb-0">Or</p>
-                </div>
     
                 <div className="form-outline mb-4">
                 <input type="text" className="form-control form-control-lg"
