@@ -129,7 +129,7 @@ const FoodDetails = () => {
             </Form>
           </Row>
           <Row className="justify-content-md-center">
-            <Col xs={6}>
+            <Col className="order-number-food" xs={6}>
               <h3>Số lượng muốn nhận: </h3>
             </Col>
             <Col xs={6}>
