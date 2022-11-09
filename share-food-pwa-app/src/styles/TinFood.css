@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&family=Montserrat:wght@300;500;700&family=Nunito+Sans:wght@600;800&display=swap");
+
+.section-bg {
+  margin: 45px 300px 75px;
+  background-color: #ffff;
+}
+
+.TinFood-title {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 600;
+}
+h2:hover {
+  color: goldenrod;
+}
+
+.hr-line {
+  display: flex;
+  margin: auto;
+  margin-top: -3.1rem;
+  padding-top: 15px;
+  width: 70%;
+  height: 3px;
+  color: goldenrod;
+}

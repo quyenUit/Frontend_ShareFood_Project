@@ -5,7 +5,7 @@ import Store from "../components/Body/Store";
 function HomePage() {
   return (
     <>
-      <NavbarPage />
+      {/* <NavbarPage /> */}
       <CarouselFood />
       <Store />
     </>

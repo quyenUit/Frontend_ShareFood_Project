@@ -99,6 +99,10 @@ const FoodDetails = () => {
           <Row className="food-info">
             <h4>
               {" "}
+              <b>Loại thực thẩm:</b>{" "}
+            </h4>
+            <h4>
+              {" "}
               <b>Thời gian cho:</b>{" "}
             </h4>
             <h4>
@@ -142,7 +146,7 @@ const FoodDetails = () => {
               as="input"
               type="submit"
               value=" Gửi yêu cầu nhận thực phẩm"
-              className="btn btn-warning"
+              className="btn-warning btn-food"
             />{" "}
           </div>
         </Container>

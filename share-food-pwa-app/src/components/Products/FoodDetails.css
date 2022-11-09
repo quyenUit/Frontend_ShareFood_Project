@@ -45,12 +45,12 @@ h3 {
   width: 10%;
 }
 
-.btn {
+.btn-food {
   display: flex;
   margin: auto;
   background-color: sandybrown;
   justify-content: center;
   border-radius: 10px;
   margin-top: 50px;
-  margin-bottom: 50px;
+  /* margin-bottom: 100px; */
 }
