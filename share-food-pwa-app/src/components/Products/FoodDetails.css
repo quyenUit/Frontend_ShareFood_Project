@@ -1,0 +1,56 @@
+* {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+#curve-detail {
+  margin-top: 30px;
+  width: 50%;
+  height: 90%;
+}
+
+.food-info {
+  margin: 10px;
+  padding: 1%;
+  font-size: 24px;
+}
+
+.horizontal-line {
+  color: rgb(255, 145, 0);
+  background-color: rgb(255, 145, 0);
+  height: 3px;
+  width: 60%;
+  margin: auto;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: goldenrod;
+  text-align: right;
+}
+
+.Ci-Minus {
+  font-size: 30px;
+  font-weight: 800;
+  color: goldenrod;
+}
+
+.Ci-Plus {
+  font-size: 30px;
+  font-weight: 800;
+  color: goldenrod;
+}
+
+.input-number {
+  width: 10%;
+}
+
+.btn {
+  display: flex;
+  margin: auto;
+  background-color: sandybrown;
+  justify-content: center;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
