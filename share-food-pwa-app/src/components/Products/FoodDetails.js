@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import ImgFood1 from "../../images/cardfood-1.jpg";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import Button from "react-bootstrap/Button";
-import "./FoodDetails.css";
+import "../../styles/FoodDetails.css";
 
 const FoodDetails = () => {
   return (
@@ -141,12 +141,12 @@ const FoodDetails = () => {
             </Col>
           </Row>
 
-          <div>
+          <div className="food-button">
             <Button
               as="input"
               type="submit"
               value=" Gửi yêu cầu nhận thực phẩm"
-              className="btn-warning btn-food"
+              className="btn-warning food-btn"
             />{" "}
           </div>
         </Container>
