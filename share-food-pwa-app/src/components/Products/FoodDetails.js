@@ -142,7 +142,7 @@ const FoodDetails = () => {
               as="input"
               type="submit"
               value=" Gửi yêu cầu nhận thực phẩm"
-              className="btn btn-warning"
+              className="btn btn-warning food-btn"
             />{" "}
           </div>
         </Container>

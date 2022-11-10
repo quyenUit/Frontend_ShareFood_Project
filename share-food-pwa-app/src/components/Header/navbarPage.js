@@ -9,6 +9,8 @@ import brandLogo from '../../images/brand.png';
 import { Outlet, useLocation } from 'react-router-dom';
 import user from '../../images/user.png';
 import notification from '../../images/bell.png';
+import Footers from '../Footer/Footer.jsx';
+
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a href={ref} style={{textDecoration: "none"}} onClick={(e) => {
       e.preventDefault();
@@ -75,6 +77,7 @@ function NavbarPage(){
           </Navbar>
         </div>
         <Outlet />
+        <Footers />
     </>
   );
 }

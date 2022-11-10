@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import Register from "./pages/Register";
 import FoodDetails from "./components/Products/FoodDetails";
 import NavbarPage from "./components/Header/navbarPage";
+import SearchFood from "./components/Body/Utils/SearchFood";
 function App() {
   return (
     <Routes>
@@ -14,6 +15,7 @@ function App() {
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<Register />} />
         <Route path="food_detail" element={<FoodDetails />} />
+        <Route path="search" element={<SearchFood />} />
       </Route>
     </Routes>
   );
