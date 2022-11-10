@@ -7,13 +7,13 @@ import Toggle from "./Toggle";
 import "../../../styles/SearchFood.css";
 const SearchFood = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg" className="Nav-search-bg">
       <Container fluid>
         <Navbar.Collapse id="navbarScroll">
           <div>
             <Toggle />
           </div>
-          <Form className="d-flex">
+          <Form className="search-box">
             <Form.Control
               type="Tìm món ăn"
               placeholder="Search"

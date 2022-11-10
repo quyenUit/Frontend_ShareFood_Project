@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 import cardFood from "../../images/cardfood-1.jpg";
 import cardFood1 from "../../images/cardfood-2.jpg";
 import cardFood2 from "../../images/cardfood-3.jpg";
@@ -14,11 +15,11 @@ function CardFood() {
         <div class="footer">
           <div class="connections">
             <div class="connection">
-              <a href="/food_detail">
-                <a>
+              <Link to="/food_detail">
+                <Link to="/food_detail">
                   <img style={{ width: "2.2rem" }} src={search}></img>
-                </a>
-              </a>
+                </Link>
+              </Link>
             </div>
           </div>
           <svg id="curve">

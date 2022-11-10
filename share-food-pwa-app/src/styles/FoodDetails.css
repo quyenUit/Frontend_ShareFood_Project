@@ -34,6 +34,21 @@
   width: 10%;
 }
 
+.order-number-food h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: goldenrod;
+  text-align: right;
+}
+
+.food-info h4 {
+  margin: 1rem;
+  background-color: #e6cba8;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 2px solid #9ba17b;
+}
+
 .food-btn {
   display: flex;
   margin: auto;
@@ -49,19 +64,4 @@
   padding-bottom: 100px;
   display: flex;
   margin: auto;
-}
-
-.order-number-food h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: goldenrod;
-  text-align: right;
-}
-
-.food-info h4 {
-  margin: 1rem;
-  background-color: #e6cba8;
-  padding: 1rem;
-  border-radius: 1rem;
-  border: 2px solid #9ba17b;
 }
