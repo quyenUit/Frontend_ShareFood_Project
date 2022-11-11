@@ -1,25 +1,31 @@
-import React from 'react';
-import '../../styles/navbarPage.css'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import {Dropdown} from 'react-bootstrap'
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import brandLogo from '../../images/brand.png';
-import { Outlet, useLocation } from 'react-router-dom';
-import user from '../../images/user.png';
-import notification from '../../images/bell.png';
-import Footers from '../Footer/Footer.jsx';
+
+import React from "react";
+import "../../styles/navbarPage.css";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { Dropdown } from "react-bootstrap";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import brandLogo from "../../images/logo-main.png";
+import { useLocation, Outlet } from "react-router-dom";
+import user from "../../images/user.png";
+import notification from "../../images/bell.png";
+import Footers from "../Footer/Footers";
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-  <a href={ref} style={{textDecoration: "none"}} onClick={(e) => {
+  <a
+    href={ref}
+    style={{ textDecoration: "none" }}
+    onClick={(e) => {
       e.preventDefault();
-      onClick(e);}}>
+      onClick(e);
+    }}
+  >
     {children}
     <img className="image-item item-left" src={user} alt="buying"></img>
   </a>
 ));
-function NavbarPage(){
+function NavbarPage() {
   const location = useLocation();
   return(
       <>
