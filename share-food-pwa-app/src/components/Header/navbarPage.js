@@ -1,3 +1,4 @@
+
 import React from "react";
 import "../../styles/navbarPage.css";
 import Container from "react-bootstrap/Container";
@@ -10,6 +11,7 @@ import { useLocation, Outlet } from "react-router-dom";
 import user from "../../images/user.png";
 import notification from "../../images/bell.png";
 import Footers from "../Footer/Footers";
+
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
     href={ref}
