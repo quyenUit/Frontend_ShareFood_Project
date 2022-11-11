@@ -40,7 +40,7 @@ function NavbarPage(){
                 <Offcanvas.Body>
                   <Nav className="navbar justify-content-center flex-grow-1 pe-3">                  
                     <Nav.Link className="nav-item" href="/">Trang chủ</Nav.Link>
-                    <Nav.Link className="nav-item" href="#action2">Tin Food</Nav.Link>
+                    <Nav.Link className="nav-item" href="/search">Tin Food</Nav.Link>
                     <img style={{width: "6rem", margin:"0 2rem"}} src={brandLogo} alt="brand"></img>
                     <Nav.Link className="nav-item" href="#action2">Đăng Tin</Nav.Link>
                     <Nav.Link className="nav-item" href="#action2">Tin nhắn</Nav.Link>
