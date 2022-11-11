@@ -11,3 +11,11 @@
 .Nav-search-bg {
   background-color: #fff8ea;
 }
+
+.food-round-here {
+  margin-top: -10px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Times New Roman", Times, serif;
+  color: green;
+}

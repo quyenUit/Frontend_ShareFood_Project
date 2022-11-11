@@ -18,7 +18,7 @@ export default function Footers() {
 
         <div>
           <a href="#!" className="me-4 text-reset">
-            <MDBIcon fab icon="facebook-f" />
+            <i className="ri-facebook-circle-fill"></i>
           </a>
           <a href="#!" className="me-4 text-reset">
             <MDBIcon fab icon="twitter" />
@@ -98,6 +98,9 @@ export default function Footers() {
             <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-md-0 mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
               <p>
+                <a href="#!" className="me-4 text-reset">
+                  <i className="ri-facebook-circle-fill"></i>
+                </a>
                 <MDBIcon icon="home" className="me-2" />
                 New York, NY 10012, US
               </p>
