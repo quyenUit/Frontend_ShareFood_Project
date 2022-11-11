@@ -4,31 +4,30 @@ import BrandLogin from "../../images/brand-login1.jpg";
 import BrandLogin1 from "../../images/brand-login2.jpg";
 import BrandLogin2 from "../../images/brand-login3.jpg";
 import Carousel from 'react-bootstrap/Carousel';
-import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import { useState } from 'react';
+import { userLogin } from '../../features/users/userAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 const LoginInput = () => {
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
-    const [loginStatus, setLoginStatus] = useState(false);
     const navigate = useNavigate();
+    const { loading, userInfo, error } = useSelector((state) => state.user)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        console.log(userInfo);
+        if (userInfo) {
+            navigate('/')
+        }else{
+            navigate('/login')
+        }
+    }, [navigate, userInfo])
+
     const HandleSubmit = async(event) =>{
         event.preventDefault();
-        ////http://localhost:3001/signup
-        //https://agriculture-app12-api.herokuapp.com/signup
-        await axios.post('http://localhost:3001/signup', {
-            email: Email,
-            password: Password
-        }).then((response => {  //response = findUser = {username, password}  {}
-            if(response){
-                navigate('/', {state: {lname: response.data.lname}});
-            }
-            else{
-                navigate('/login');
-            }
-        })).catch((e)=>{
-            setLoginStatus("Wrong Username / Password. Try again.");
-        })
+        dispatch(userLogin({email: Email, password: Password}));
     }
   return (
     <section className="login-phase">
