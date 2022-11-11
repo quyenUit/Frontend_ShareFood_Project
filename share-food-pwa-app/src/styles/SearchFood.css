@@ -1,0 +1,13 @@
+.search-box {
+  display: flex;
+  margin: auto;
+  width: 50%;
+}
+
+.btn-search {
+  width: 15%;
+}
+
+.Nav-search-bg {
+  background-color: #fff8ea;
+}
