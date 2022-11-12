@@ -17,7 +17,7 @@ const LoginInput = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(userInfo);
+
         if (userInfo) {
             navigate('/')
         }else{

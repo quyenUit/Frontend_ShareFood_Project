@@ -5,7 +5,6 @@ import { userLogin } from "./userAction";
 const initialState = {
     loading: false,
     userInfo: null,
-    userToken: null,
     error: null,
     success: false
 }
@@ -13,7 +12,13 @@ const initialState = {
 const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    reducers: {
+      logout: (state) => {
+        state.loading = false
+        state.userInfo = null
+        state.error = null
+      }
+    },
     extraReducers: {
       [userLogin.pending]: (state) => {
         state.loading = true
@@ -30,4 +35,5 @@ const userSlice = createSlice({
     }
   })
 
+export const { logout } = userSlice.actions
 export default userSlice.reducer
