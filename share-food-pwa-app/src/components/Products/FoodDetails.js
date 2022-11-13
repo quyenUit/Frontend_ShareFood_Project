@@ -15,7 +15,7 @@ const FoodDetails = () => {
             <Col xs={8}>
               <div id="curve-detail" className="card col-lg-3">
                 <img src={ImgFood1} alt="#"></img>
-                <div class="footer">
+                <div className="footer">
                   <svg id="curve">
                     <path
                       id="p"

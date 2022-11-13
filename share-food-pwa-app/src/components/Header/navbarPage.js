@@ -51,7 +51,7 @@ function NavbarPage() {
                     <Nav.Link className="nav-item" href="/">Trang chủ</Nav.Link>
                     <Nav.Link className="nav-item" href="/search">Tin Food</Nav.Link>
                     <img style={{width: "6rem", margin:"0 2rem"}} src={brandLogo} alt="brand"></img>
-                    <Nav.Link className="nav-item" href="#action2">Đăng Tin</Nav.Link>
+                    <Nav.Link className="nav-item" href="/post">Đăng Tin</Nav.Link>
                     <Nav.Link className="nav-item" href="#action2">Tin nhắn</Nav.Link>
                     <div className="button-navbar">
                       {
