@@ -10,15 +10,25 @@ const PostFood = () => {
 
   const [nameFood, setNameFood] = useState('');
   const [type, setType] = useState('');
-  const [dateStart, setDateStart] = useState('');
-  const [dateEnd, setDateEnd] = useState('');
+  const [dateStart, setDateStart] = useState(null);
+  const [dateEnd, setDateEnd] = useState(null);
   const [location, setLocation] = useState('');
-  const [file, setFile] = useState('');
+  const [image, setImage] = useState(null);
   const {postInfo} = useSelector((state) => state.post)
   const navigate = useNavigate();
   const dispatch = useDispatch();
   function handleChange(e) {
-    setFile(URL.createObjectURL(e.target.files[0]));
+    const file = e.target.files[0];
+    setFileToBase(file);
+    console.log(file);
+  }
+
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImage(reader.result);
+    }
   }
 
   useEffect(() => {
@@ -35,8 +45,9 @@ const PostFood = () => {
     dateStart: dateStart,
     dateEnd: dateEnd,
     location: location,
-    file: file
+    file: image
   }
+
 
   const UploadPost = async(event) =>{
     event.preventDefault();
@@ -286,7 +297,7 @@ const PostFood = () => {
                     class="form-control-file"
                     id="exampleFormControlFile1"
                   />
-                  <img src={file} />
+                  <img src={image} />
                 </div>
                 <div className="form-group row">
                   <div className="col-sm-10">
