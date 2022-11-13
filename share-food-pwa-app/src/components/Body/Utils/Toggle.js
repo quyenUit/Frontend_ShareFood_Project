@@ -6,7 +6,6 @@ const Toggle = () => {
 
   const handleToggle = () => {
     setOn((on) => {
-      console.log(on);
       return !on;
     });
   };
