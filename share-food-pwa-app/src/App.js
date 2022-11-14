@@ -11,26 +11,29 @@ import MyFoodPage from "./pages/MyFood";
 import MyGetFoodPage from "./pages/MyGetFood";
 import FollowingPage from "./pages/Following";
 import FollowerPage from "./pages/Follower";
+import { Provider } from "react-redux";
 import PostFood from "./components/Body/PostFood";
-
+import store from "./app/store";
 
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<NavbarPage />}>
-        <Route index element={<HomePage />} />
-        <Route path="myfood" element={<MyFoodPage />} />
-        <Route path="mygetfood" element={<MyGetFoodPage />} />
-        <Route path="following" element={<FollowingPage />} />
-        <Route path="follower" element={<FollowerPage />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="register" element={<Register />} />
-        <Route path="food_detail" element={<FoodDetails />} />
-        <Route path="search" element={<SearchFood />} />
-        <Route path="post" element={<PostFood />} />
-      </Route>
-    </Routes>
+    <Provider store={store}>
+      <Routes>
+        <Route path="/" element={<NavbarPage />}>
+          <Route index element={<HomePage />} />
+          <Route path="myfood" element={<MyFoodPage />} />
+          <Route path="mygetfood" element={<MyGetFoodPage />} />
+          <Route path="following" element={<FollowingPage />} />
+          <Route path="follower" element={<FollowerPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<Register />} />
+          <Route path="food_detail" element={<FoodDetails />} />
+          <Route path="search" element={<SearchFood />} />
+          <Route path="post" element={<PostFood />} />
+        </Route>
+      </Routes>
+    </Provider>
   );
 }
 
