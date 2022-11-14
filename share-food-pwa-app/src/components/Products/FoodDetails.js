@@ -141,7 +141,7 @@ const FoodDetails = () => {
             </Col>
           </Row>
 
-          <div className="food-button">
+          <div id="food-button">
             <Button
               as="input"
               type="submit"
