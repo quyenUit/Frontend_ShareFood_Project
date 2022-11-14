@@ -8,14 +8,13 @@ import { useNavigate } from "react-router-dom";
 import { getPostStatus } from "../../features/posts/postSlice";
 import { resetStatus } from "../../features/posts/postSlice";
 const PostFood = () => {
-
-  const [nameFood, setNameFood] = useState('');
-  const [type, setType] = useState('');
+  const [nameFood, setNameFood] = useState("");
+  const [type, setType] = useState("");
   const [dateStart, setDateStart] = useState(null);
   const [dateEnd, setDateEnd] = useState(null);
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState("");
   const [image, setImage] = useState(null);
-  const {userInfo} = useSelector((state) => state.user)
+  const { userInfo } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const postStatus = useSelector(getPostStatus);
@@ -30,16 +29,15 @@ const PostFood = () => {
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setImage(reader.result);
-    }
-  }
-  
-  
+    };
+  };
+
   useEffect(() => {
-    if (postStatus === 'succeeded') {
-      dispatch(resetStatus())
-      navigate('/')
+    if (postStatus === "succeeded") {
+      dispatch(resetStatus());
+      navigate("/");
     }
-  }, [navigate, postStatus])
+  }, [navigate, postStatus]);
 
   const post = {
     name: nameFood,
@@ -48,19 +46,17 @@ const PostFood = () => {
     dateEnd: dateEnd,
     location: location,
     file: image,
-    email: userInfo.email
-  }
+    email: userInfo.email,
+  };
 
-
-  const UploadPost = async(event) =>{
+  const UploadPost = async (event) => {
     event.preventDefault();
     dispatch(postUpload(post));
-  }
-  
+  };
 
   return (
     <>
-      <section>
+      <section className="section-food">
         <Container>
           <Row className="justify-content-md-center">
             <Col xs={8} className="col-post-food">
