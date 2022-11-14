@@ -12,9 +12,9 @@ function CardFood() {
     <div className="d-flex card-store-food">
       <div id="curve" class="card col-lg-3">
         <img src={cardFood}></img>
-        <div class="footer">
-          <div class="connections">
-            <div class="connection">
+        <div className="footer">
+          <div className="connections">
+            <div className="connection">
               <Link to="/food_detail">
                 <Link to="/food_detail">
                   <img style={{ width: "2.2rem" }} src={search}></img>
@@ -100,8 +100,8 @@ function CardFood() {
       <div id="curve" className="card col-lg-3">
         <img src={cardFood1}></img>
         <div className="footer">
-          <div class="connections">
-            <div class="connection">
+          <div className="connections">
+            <div className="connection">
               <a href="/">
                 <a>
                   <img style={{ width: "2.2rem" }} src={search}></img>
@@ -187,8 +187,8 @@ function CardFood() {
       <div id="curve" className="card col-lg-3">
         <img src={cardFood2}></img>
         <div className="footer">
-          <div class="connections">
-            <div class="connection">
+          <div className="connections">
+            <div className="connection">
               <a href="/">
                 <a>
                   <img style={{ width: "2.2rem" }} src={search}></img>
@@ -274,8 +274,8 @@ function CardFood() {
       <div id="curve" className="card col-lg-3">
         <img src={cardFood3}></img>
         <div className="footer">
-          <div class="connections">
-            <div class="connection">
+          <div className="connections">
+            <div className="connection">
               <a href="/">
                 <a>
                   <img style={{ width: "2.2rem" }} src={search}></img>

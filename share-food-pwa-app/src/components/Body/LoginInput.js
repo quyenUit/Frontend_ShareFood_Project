@@ -17,7 +17,7 @@ const LoginInput = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(userInfo);
+
         if (userInfo) {
             navigate('/')
         }else{
@@ -29,6 +29,7 @@ const LoginInput = () => {
         event.preventDefault();
         dispatch(userLogin({email: Email, password: Password}));
     }
+    
   return (
     <section className="login-phase">
         <div className="container-fluid1 h-custom">

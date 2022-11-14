@@ -1,13 +1,60 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../../styles/PostFood.css";
+import { useDispatch, useSelector } from "react-redux";
+import { postUpload } from "../../features/posts/postUpload";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PostFood = () => {
-  const [file, setFile] = useState();
+
+  const [nameFood, setNameFood] = useState('');
+  const [type, setType] = useState('');
+  const [dateStart, setDateStart] = useState(null);
+  const [dateEnd, setDateEnd] = useState(null);
+  const [location, setLocation] = useState('');
+  const [image, setImage] = useState(null);
+  const {postInfo} = useSelector((state) => state.post)
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   function handleChange(e) {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
+    const file = e.target.files[0];
+    setFileToBase(file);
+    console.log(file);
   }
+
+  const setFileToBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImage(reader.result);
+    }
+  }
+
+  useEffect(() => {
+    if (postInfo) {
+        navigate('/')
+    }else{
+        navigate('/post')
+    }
+  }, [navigate, postInfo])
+
+  const post = {
+    name: nameFood,
+    type: type,
+    dateStart: dateStart,
+    dateEnd: dateEnd,
+    location: location,
+    file: image
+  }
+
+
+  const UploadPost = async(event) =>{
+    event.preventDefault();
+    dispatch(postUpload(post));
+  }
+  
+
   return (
     <>
       <section>
@@ -15,7 +62,7 @@ const PostFood = () => {
           <Row className="justify-content-md-center">
             <Col xs={8} className="col-post-food">
               <h2 className="post-food-title">Đăng thực phẩm</h2>
-              <form className="post-form">
+              <form className="post-form" onSubmit={UploadPost}>
                 <div className="form-group row mb-3">
                   <label for="foodname" className="col-sm-2 col-form-label">
                     Tên món ăn
@@ -26,6 +73,7 @@ const PostFood = () => {
                       className="form-control"
                       id="foodname"
                       placeholder="Tên món ăn"
+                      onChange={(e) => setNameFood(e.target.value)}
                     />
                   </div>
                 </div>
@@ -45,8 +93,8 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood1"
-                              value="option1"
-                              checked
+                              value="Cơm"
+                              onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
@@ -61,7 +109,8 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood2"
-                              value="option2"
+                              value="Trái cây"
+                              onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
@@ -76,8 +125,8 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood3"
-                              value="option3"
-                              disabled
+                              value="Phở"
+                              onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
@@ -94,8 +143,8 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood1"
-                              value="option1"
-                              checked
+                              value="Thực phẩm ăn liền"
+                              onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
@@ -110,7 +159,8 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood2"
-                              value="option2"
+                              value="Thực phẩm khô"
+                              onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
@@ -125,8 +175,8 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood3"
-                              value="option3"
-                              disabled
+                              value="Rau"
+                              onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
@@ -143,8 +193,8 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood1"
-                              value="option1"
-                              checked
+                              value="Thịt"
+                              onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
@@ -159,7 +209,8 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood2"
-                              value="option2"
+                              value="Cá"
+                              onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
@@ -174,8 +225,8 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood3"
-                              value="option3"
-                              disabled
+                              value="Thực phẩm thiết yếu"
+                              onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
@@ -200,6 +251,7 @@ const PostFood = () => {
                       className="form-control"
                       id="gettime"
                       placeholder="Thời gian cho"
+                      onChange={(e) => setDateStart(e.target.value)}
                     />
                   </div>
                 </div>
@@ -214,6 +266,7 @@ const PostFood = () => {
                       className="form-control"
                       id="gettime"
                       placeholder="Thời gian kết thúc"
+                      onChange={(e) => setDateEnd(e.target.value)}
                     />
                   </div>
                 </div>
@@ -231,26 +284,12 @@ const PostFood = () => {
                       className="form-control"
                       id="inputPassword3"
                       placeholder="Địa chỉ"
+                      onChange={(e) => setLocation(e.target.value)}
                     />
                   </div>
                 </div>
 
-                {/* <div className="form-group row">
-                  <div className="col-sm-2">Checkbox</div>
-                  <div className="col-sm-10">
-                    <div className="form-check">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        id="gridCheck1"
-                      />
-                      <label className="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-                  </div>
-                </div> */}
-                <div class="form-group row mb-3">
+                <div className="form-group row mb-3">
                   <label for="exampleFormControlFile1">Chọn hình ảnh</label>
                   <input
                     type="file"
@@ -258,12 +297,12 @@ const PostFood = () => {
                     class="form-control-file"
                     id="exampleFormControlFile1"
                   />
-                  <img src={file} />
+                  <img src={image} />
                 </div>
                 <div className="form-group row">
                   <div className="col-sm-10">
                     <button type="submit" className="btn btn-primary">
-                      Sign in
+                      Tải lên
                     </button>
                   </div>
                 </div>

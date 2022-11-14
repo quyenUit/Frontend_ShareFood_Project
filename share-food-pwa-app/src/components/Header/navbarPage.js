@@ -1,4 +1,3 @@
-
 import React from "react";
 import "../../styles/navbarPage.css";
 import Container from "react-bootstrap/Container";
@@ -11,6 +10,8 @@ import { useLocation, Outlet } from "react-router-dom";
 import user from "../../images/user.png";
 import notification from "../../images/bell.png";
 import Footers from "../Footer/Footers";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../features/users/userSlice";
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
@@ -25,8 +26,10 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <img className="image-item item-left" src={user} alt="buying"></img>
   </a>
 ));
+
 function NavbarPage() {
-  const location = useLocation();
+  const {userInfo} = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   return(
       <>
         <div>
@@ -48,21 +51,20 @@ function NavbarPage() {
                     <Nav.Link className="nav-item" href="/">Trang chủ</Nav.Link>
                     <Nav.Link className="nav-item" href="/search">Tin Food</Nav.Link>
                     <img style={{width: "6rem", margin:"0 2rem"}} src={brandLogo} alt="brand"></img>
-                    <Nav.Link className="nav-item" href="#action2">Đăng Tin</Nav.Link>
+                    <Nav.Link className="nav-item" href="/post">Đăng Tin</Nav.Link>
                     <Nav.Link className="nav-item" href="#action2">Tin nhắn</Nav.Link>
                     <div className="button-navbar">
                       {
-                        location.state?
+                        userInfo?
                         (
                           <div className='user-dropdown d-flex justify-content-center'>
                             <Nav.Item><img className="image-item item-left" src={notification} alt="buying"></img></Nav.Item>
                             <Dropdown align="end">
                               <Dropdown.Toggle id="dropdown-custom-components" as={CustomToggle}></Dropdown.Toggle>
                               <Dropdown.Menu className='dropdown-custom'>
-                                  <Dropdown.ItemText eventKey="1" className='dropdown-custom-a'>Hello, {location.state.lname}</Dropdown.ItemText>
+                                  <Dropdown.ItemText eventKey="1" className='dropdown-custom-a'>Hello, {userInfo.lname}</Dropdown.ItemText>
                                   <Dropdown.Item eventKey="2">Profile</Dropdown.Item>
-                                  <Dropdown.Item eventKey="3">Settings</Dropdown.Item>
-                                  <Dropdown.Item eventKey="1">Log out</Dropdown.Item>
+                                  <Dropdown.Item eventKey="1" onClick={() => dispatch(logout())}>Log out</Dropdown.Item>
                               </Dropdown.Menu>
                             </Dropdown>
                           </div>
