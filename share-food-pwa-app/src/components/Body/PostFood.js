@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { postUpload } from "../../features/posts/postUpload";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { getPostStatus } from "../../features/posts/postSlice";
+import { resetStatus } from "../../features/posts/postSlice";
 const PostFood = () => {
 
   const [nameFood, setNameFood] = useState('');
@@ -14,13 +15,14 @@ const PostFood = () => {
   const [dateEnd, setDateEnd] = useState(null);
   const [location, setLocation] = useState('');
   const [image, setImage] = useState(null);
-  const {postInfo} = useSelector((state) => state.post)
+  const {userInfo} = useSelector((state) => state.user)
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const postStatus = useSelector(getPostStatus);
+
   function handleChange(e) {
     const file = e.target.files[0];
     setFileToBase(file);
-    console.log(file);
   }
 
   const setFileToBase = (file) => {
@@ -30,14 +32,14 @@ const PostFood = () => {
       setImage(reader.result);
     }
   }
-
+  
+  
   useEffect(() => {
-    if (postInfo) {
-        navigate('/')
-    }else{
-        navigate('/post')
+    if (postStatus === 'succeeded') {
+      dispatch(resetStatus())
+      navigate('/')
     }
-  }, [navigate, postInfo])
+  }, [navigate, postStatus])
 
   const post = {
     name: nameFood,
@@ -45,7 +47,8 @@ const PostFood = () => {
     dateStart: dateStart,
     dateEnd: dateEnd,
     location: location,
-    file: image
+    file: image,
+    email: userInfo.email
   }
 
 
