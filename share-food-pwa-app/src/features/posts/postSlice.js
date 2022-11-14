@@ -2,30 +2,32 @@ import { createSlice } from "@reduxjs/toolkit";
 import {postUpload} from "./postUpload";
 
 const initialState = {
-    loading: false,
-    postInfo: null,
-    error: null,
-    success: false
+    status: 'idle',
+    error: null
 }
 
 const postSlice = createSlice({
     name: 'post',
     initialState,
-    reducers: {},
-    extraReducers:{
-        [postUpload.pending]: (state) => {
-            state.loading = true
-            state.error = null
-        },
-        [postUpload.fulfilled]: (state , { payload }) => {
-            state.loading = false
-            state.postInfo = payload
-        },
-        [postUpload.rejected]: (state, { payload }) => {
-            state.loading = false
-            state.error = payload
+    reducers: {
+        resetStatus(state){
+            state.status = 'idle'
         }
+    },
+    extraReducers: (builder) => {
+        builder
+        .addCase(postUpload.pending, (state) => {
+            state.status = 'loading'
+        })
+        .addCase(postUpload.fulfilled, (state, action) => {
+            state.status = 'succeeded'
+        })
+        .addCase(postUpload.rejected, (state, action) => {
+            state.status = 'failed'
+        })
     }
 })
 
 export default postSlice.reducer
+export const {resetStatus} = postSlice.actions
+export const getPostStatus = (state) => state.post.status

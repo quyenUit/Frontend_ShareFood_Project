@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../../../styles/Toggle.css";
 const Toggle = () => {
   const [on, setOn] = useState(false);
-  console.log(on);
 
   const handleToggle = () => {
     setOn((on) => {
