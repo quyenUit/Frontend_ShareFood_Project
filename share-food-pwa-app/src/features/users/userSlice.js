@@ -3,10 +3,9 @@ import axios from "axios";
 import { userLogin } from "./userAction";
 
 const initialState = {
-    loading: false,
     userInfo: null,
-    error: null,
-    success: false
+    status: 'idle',
+    error: null
 }
 
 const userSlice = createSlice({
@@ -19,21 +18,24 @@ const userSlice = createSlice({
         state.error = null
       }
     },
-    extraReducers: {
-      [userLogin.pending]: (state) => {
-        state.loading = true
-        state.error = null
-      },
-      [userLogin.fulfilled]: (state, { payload }) => {
-        state.loading = false
-        state.userInfo = payload
-      },
-      [userLogin.rejected]: (state, { payload }) => {
-        state.loading = false
-        state.error = payload
-      }
+    extraReducers: (builder) => {
+      builder
+        .addCase(userLogin.pending, (state) => {
+          state.status = 'loading'
+        })
+        .addCase(userLogin.fulfilled, (state, action) => {
+          state.status = 'succeded'
+          console.log(action.payload)
+          state.userInfo = action.payload
+        })
+        .addCase(userLogin.rejected, (state, action) => {
+          state.status = 'failed'
+          state.error = action.error.message
+        })
     }
   })
 
+export const getUserStatus = (state) => state.user.status
+export const getUserError = (state) => state.user.error
 export const { logout } = userSlice.actions
 export default userSlice.reducer

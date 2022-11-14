@@ -7,13 +7,15 @@
   background-color: #ebd8c3;
 }
 
-.nav-link {
+.nav-item {
   color: #665a48;
   border-right: 2px solid #b09b71;
   width: 9rem;
   padding: 0;
   text-align: center;
+  text-decoration: none;
 }
+
 .container-fluid {
   border-bottom: 2px solid #b09b71;
 }
