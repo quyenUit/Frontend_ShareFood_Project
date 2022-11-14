@@ -63,7 +63,7 @@ const PostFood = () => {
       <section>
         <Container>
           <Row className="justify-content-md-center">
-            <Col xs={8}>
+            <Col xs={8} className="col-post-food">
               <h2 className="post-food-title">Đăng thực phẩm</h2>
               <form className="post-form" onSubmit={UploadPost}>
                 <div className="form-group row mb-3">

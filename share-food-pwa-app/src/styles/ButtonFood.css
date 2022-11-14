@@ -1,0 +1,10 @@
+.button-food-p {
+  display: flex;
+  margin: 20px;
+  height: 70px;
+  width: 150px;
+  align-items: center;
+  color: floralwhite;
+  font-size: 26px;
+  background-color: orange;
+}

@@ -8,18 +8,17 @@ import "../../../styles/SearchFood.css";
 const SearchFood = () => {
   return (
     <Navbar expand="lg" className="Nav-search-bg">
-
       <Container fluid>
         <Navbar.Collapse id="navbarScroll">
           <div>
             <Toggle />
+            <h4 className="food-round-here">Thức ăn quanh bạn</h4>
           </div>
 
           <Form className="search-box">
-
             <Form.Control
-              type="Tìm món ăn"
-              placeholder="Search"
+              type="search"
+              placeholder="Tìm món ăn"
               className="me-2"
               aria-label="Search"
             />
@@ -34,4 +33,3 @@ const SearchFood = () => {
 };
 
 export default SearchFood;
-
