@@ -7,14 +7,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const PostFood = () => {
-
-  const [nameFood, setNameFood] = useState('');
-  const [type, setType] = useState('');
+  const [nameFood, setNameFood] = useState("");
+  const [type, setType] = useState("");
   const [dateStart, setDateStart] = useState(null);
   const [dateEnd, setDateEnd] = useState(null);
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState("");
   const [image, setImage] = useState(null);
-  const {postInfo} = useSelector((state) => state.post)
+  const { postInfo } = useSelector((state) => state.post);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   function handleChange(e) {
@@ -28,16 +27,16 @@ const PostFood = () => {
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       setImage(reader.result);
-    }
-  }
+    };
+  };
 
   useEffect(() => {
     if (postInfo) {
-        navigate('/')
-    }else{
-        navigate('/post')
+      navigate("/");
+    } else {
+      navigate("/post");
     }
-  }, [navigate, postInfo])
+  }, [navigate, postInfo]);
 
   const post = {
     name: nameFood,
@@ -45,19 +44,17 @@ const PostFood = () => {
     dateStart: dateStart,
     dateEnd: dateEnd,
     location: location,
-    file: image
-  }
+    file: image,
+  };
 
-
-  const UploadPost = async(event) =>{
+  const UploadPost = async (event) => {
     event.preventDefault();
     dispatch(postUpload(post));
-  }
-  
+  };
 
   return (
     <>
-      <section>
+      <section className="section-food">
         <Container>
           <Row className="justify-content-md-center">
             <Col xs={8} className="col-post-food">
