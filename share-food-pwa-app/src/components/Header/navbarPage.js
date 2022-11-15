@@ -6,13 +6,12 @@ import Navbar from "react-bootstrap/Navbar";
 import { Dropdown } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import brandLogo from "../../images/logo-main.png";
-import { useLocation, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import user from "../../images/user.png";
 import notification from "../../images/bell.png";
 import Footers from "../Footer/Footers";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/users/userSlice";
-import { getUserStatus } from "../../features/users/userSlice";
 import { Link } from "react-router-dom";
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a

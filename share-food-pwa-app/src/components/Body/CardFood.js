@@ -1,17 +1,13 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import cardFood from "../../images/cardfood-1.jpg";
-import cardFood1 from "../../images/cardfood-2.jpg";
-import cardFood2 from "../../images/cardfood-3.jpg";
-import cardFood3 from "../../images/cardfood-4.jpg";
 import search from "../../images/search.png";
 
-function CardFood() {
+function CardFood(post) {
+  
   return (
-    <div className="d-flex card-store-food">
-      <div id="curve" class="card col-lg-3">
-        <img src={cardFood}></img>
+      <div id="curve" class="card">
+        <img src={post.post.file}></img>
         <div className="footer">
           <div className="connections">
             <div className="connection">
@@ -91,13 +87,12 @@ function CardFood() {
             />
           </svg>
           <div className="info">
-            <div className="name">Bánh mì</div>
-            <div className="job">Quán bánh mì 24 (Cách đây 2km)</div>
+            <div className="name">{post.post.name}</div>
+            <div className="job">{post.post.location}</div>
           </div>
         </div>
         <div className="card-blur"></div>
       </div>
-    </div>
   );
 }
 

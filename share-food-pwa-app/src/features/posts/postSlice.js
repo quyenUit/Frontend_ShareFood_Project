@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {postUpload} from "./postUpload";
-
+import { postList } from "./postList";
 const initialState = {
+    post: [],
     status: 'idle',
     error: null
 }
@@ -24,6 +25,13 @@ const postSlice = createSlice({
         })
         .addCase(postUpload.rejected, (state, action) => {
             state.status = 'failed'
+        })
+        .addCase(postList.pending, (state) => {
+
+        })
+        .addCase(postList.fulfilled, (state, action) => {
+            state.post = action.payload
+            state.showstatus = 'succeeded'
         })
     }
 })

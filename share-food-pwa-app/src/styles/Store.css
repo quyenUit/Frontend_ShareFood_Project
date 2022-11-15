@@ -48,8 +48,10 @@ body {
 
 .card {
     background-color: #FFF6EA;
-    width: 16rem;
-    margin: auto;
+    width: 20rem;
+    height: 23rem;
+    margin: 2rem auto;
+    padding-top: 2.5rem;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -175,4 +177,8 @@ svg#curve {
 
 .card-store-food{
     height: 30rem;
+}
+
+.row-food-container{
+    margin: 3rem 1rem;
 }

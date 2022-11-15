@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/Store.css'
-import CardFood from './CardFood';
+import CardFoodList from './CardFoodList';
 
 const Store = () => {
   return (
@@ -13,7 +13,7 @@ const Store = () => {
               <p>Những món ăn gần đây mà bạn cần tìm kiếm</p>
           </div>
       </div>
-      <CardFood />
+      <CardFoodList />
     </div>
   )
 }
