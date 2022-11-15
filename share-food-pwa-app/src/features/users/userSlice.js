@@ -1,5 +1,4 @@
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import axios from "axios";
+import {createSlice} from "@reduxjs/toolkit";
 import { userLogin } from "./userAction";
 
 const initialState = {
@@ -25,7 +24,6 @@ const userSlice = createSlice({
         })
         .addCase(userLogin.fulfilled, (state, action) => {
           state.status = 'succeded'
-          console.log(action.payload)
           state.userInfo = action.payload
         })
         .addCase(userLogin.rejected, (state, action) => {

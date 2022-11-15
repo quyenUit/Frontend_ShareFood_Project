@@ -13,7 +13,7 @@ const LoginInput = () => {
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
     const navigate = useNavigate();
-    const { loading, userInfo, error } = useSelector((state) => state.user)
+    const {userInfo} = useSelector((state) => state.user)
     const dispatch = useDispatch();
 
     useEffect(() => {

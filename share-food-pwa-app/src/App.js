@@ -13,10 +13,12 @@ import FollowingPage from "./pages/Following";
 import FollowerPage from "./pages/Follower";
 import { Provider } from "react-redux";
 import PostFood from "./components/Body/PostFood";
+import { useDispatch } from "react-redux";
+import { postList } from "./features/posts/postList";
 import store from "./app/store";
 
-
 function App() {
+  store.dispatch(postList());
   return (
     <Provider store={store}>
       <Routes>

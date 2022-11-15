@@ -10,7 +10,6 @@ const RegisterInput = () => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [Password1, setPassword1] = useState("");
-  const [loginStatus, setLoginStatus] = useState(false);
   const navigate = useNavigate();
   const HandleSubmit = async (event) => {
     event.preventDefault();
@@ -34,7 +33,7 @@ const RegisterInput = () => {
           }
         })
         .catch((e) => {
-          setLoginStatus("Wrong Username / Password. Try again.");
+
         });
     }
   };
