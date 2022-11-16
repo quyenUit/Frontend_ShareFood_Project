@@ -64,3 +64,7 @@
   padding: 100px 0px 50px;
   margin-left: 35%;
 }
+
+.food-info h4 b{
+  width: 15rem;
+}

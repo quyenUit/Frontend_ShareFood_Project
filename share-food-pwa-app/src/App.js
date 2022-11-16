@@ -30,9 +30,12 @@ function App() {
           <Route path="follower" element={<FollowerPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<Register />} />
-          <Route path="food_detail" element={<FoodDetails />} />
           <Route path="search" element={<SearchFood />} />
-          <Route path="post" element={<PostFood />} />
+
+          <Route path="post">
+            <Route index element={<PostFood />} />
+            <Route path=":postId" element={<FoodDetails />} />
+          </Route>
         </Route>
       </Routes>
     </Provider>
