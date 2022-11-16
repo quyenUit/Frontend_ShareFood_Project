@@ -4,9 +4,18 @@ import Form from "react-bootstrap/Form";
 import ImgFood1 from "../../images/cardfood-1.jpg";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import Button from "react-bootstrap/Button";
+import {useParams} from "react-router-dom";
 import "../../styles/FoodDetails.css";
+import { getPostId } from "../../features/posts/postSlice";
+import { useSelector } from "react-redux";
 
 const FoodDetails = () => {
+  const {postId} = useParams();
+  const post = useSelector((state) => getPostId(state, Number(postId)));
+  const date = new Date(post.timeStart);
+  const dateEnd = new Date(post.timeEnd);
+  const timeStart = (date.getHours() + ":" + date.getMinutes() + "  -  " + dateEnd.getHours() + ":" + dateEnd.getMinutes())
+  .toString();
   return (
     <>
       <section>
@@ -14,7 +23,7 @@ const FoodDetails = () => {
           <Row className="justify-content-md-center">
             <Col xs={8}>
               <div id="curve-detail" className="card col-lg-3">
-                <img src={ImgFood1} alt="#"></img>
+                <img src={post.file} alt="#"></img>
                 <div className="footer">
                   <svg id="curve">
                     <path
@@ -85,8 +94,8 @@ const FoodDetails = () => {
                     />
                   </svg>
                   <div className="info">
-                    <div className="name">Bánh mì</div>
-                    <div className="job">Quán bánh mì 24 (Cách đây 2km)</div>
+                    <div className="name">{post.name}</div>
+                    <div className="job">{post.location}</div>
                   </div>
                 </div>
                 <div className="card-blur"></div>
@@ -97,21 +106,20 @@ const FoodDetails = () => {
             <hr />
           </div>
           <Row className="food-info">
-            <h4>
-              {" "}
-              <b>Loại thực thẩm:</b>{" "}
+            <h4 className="d-flex">
+              <b>Loại thực thẩm:&emsp;</b>
+              {post.type}
             </h4>
-            <h4>
-              {" "}
-              <b>Thời gian cho:</b>{" "}
+            <h4 className="d-flex">
+              <b>Thời gian cho:&emsp;</b>
+              {timeStart}
             </h4>
-            <h4>
-              {" "}
-              <b>Địa chỉ:</b>{" "}
+            <h4 className="d-flex">
+              <b>Địa chỉ:&emsp;</b>
+              {post.location}
             </h4>
-            <h4>
-              {" "}
-              <b>Số lượng cho:</b>{" "}
+            <h4 className="d-flex">
+              <b>Số lượng cho:&emsp;</b>{1}
             </h4>
 
             <Form>
