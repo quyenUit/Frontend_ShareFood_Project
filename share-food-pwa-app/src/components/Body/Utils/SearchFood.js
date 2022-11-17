@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import Toggle from "./Toggle";
 import "../../../styles/SearchFood.css";
+
 const SearchFood = () => {
   return (
     <Navbar expand="lg" className="Nav-search-bg">
