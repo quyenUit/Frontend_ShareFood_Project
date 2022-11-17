@@ -16,12 +16,14 @@ import PostFood from "./components/Body/PostFood";
 import { useDispatch } from "react-redux";
 import { postList } from "./features/posts/postList";
 import store from "./app/store";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   store.dispatch(postList());
   return (
     <Provider store={store}>
       <Routes>
+        <Route path="admin" element={<AdminPage />} />
         <Route path="/" element={<NavbarPage />}>
           <Route index element={<HomePage />} />
           <Route path="myfood" element={<MyFoodPage />} />

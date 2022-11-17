@@ -28,64 +28,101 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
 ));
 
 function NavbarPage() {
-  const {userInfo} = useSelector((state) => state.user);
+  const { userInfo } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  return(
-      <>
-        <div>
-          <Navbar bg="light" expand="sm" style={{backgroundColor: "#FFF8EA"}}>
-            <Container style={{padding: "0"}} fluid>
-              <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
-              <Navbar.Offcanvas
-                id={`offcanvasNavbar-expand`}
-                aria-labelledby={`offcanvasNavbarLabel-expand`}
-                placement="end"
-              >
-                <Offcanvas.Header closeButton>
-                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand`}>
-                    Offcanvas
-                  </Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                  <Nav className="navbar justify-content-center flex-grow-1 pe-3">                  
-                    <Link to="/" className="nav-item">Home</Link>
-                    <Link to="search" className="nav-item">Tìm món ăn</Link>
-                    <img style={{width: "6rem", margin:"0 2rem"}} src={brandLogo} alt="brand"></img>
-                    <Link className="nav-item" to="post">Đăng Tin</Link>
-                    <Link className="nav-item" to="#action2">Tin nhắn</Link>
-                    <div className="button-navbar">
-                      {
-                        userInfo?
-                        (
-                          <div className='user-dropdown d-flex justify-content-center'>
-                            <Nav.Item><img className="image-item item-left" src={notification} alt="buying"></img></Nav.Item>
-                            <Dropdown align="end">
-                              <Dropdown.Toggle id="dropdown-custom-components" as={CustomToggle}></Dropdown.Toggle>
-                              <Dropdown.Menu className='dropdown-custom'>
-                                  <Dropdown.ItemText eventKey="1" className='dropdown-custom-a'>Hello, {userInfo.lname}</Dropdown.ItemText>
-                                  <Dropdown.Item eventKey="2">Profile</Dropdown.Item>
-                                  <Dropdown.Item eventKey="1" onClick={() => dispatch(logout())}>Log out</Dropdown.Item>
-                              </Dropdown.Menu>
-                            </Dropdown>
-                          </div>
-                        )
-                        :
-                        (
-                          <>
-                            <a className="btn btn-primary login-button" href='/login'>Đăng nhập</a>
-                            <a className="btn btn-primary" href='/login'>Đăng kí</a>
-                          </>
-                        )
-                      }
-                    </div>
-                  </Nav>
-                </Offcanvas.Body>
-              </Navbar.Offcanvas>
-            </Container>
-          </Navbar>
-        </div>
-        <Outlet />
-        <Footers />
+  return (
+    <>
+      <div>
+        <Navbar bg="light" expand="sm" style={{ backgroundColor: "#FFF8EA" }}>
+          <Container style={{ padding: "0" }} fluid>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand`}
+              aria-labelledby={`offcanvasNavbarLabel-expand`}
+              placement="end"
+            >
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand`}>
+                  Offcanvas
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <Nav className="navbar justify-content-center flex-grow-1 pe-3">
+                  <img
+                    style={{ width: "6rem", margin: "0 2rem" }}
+                    src={brandLogo}
+                    alt="brand"
+                  ></img>
+                  <Link to="/" className="nav-item">
+                    Trang chủ
+                  </Link>
+                  <Link to="/myfood" className="nav-item">
+                    Thực phẩm của tôi
+                  </Link>
+
+                  <Link className="nav-item" to="post">
+                    Thực phẩm nhận được
+                  </Link>
+                  <Link className="nav-item" to="#action2">
+                    Đang theo dõi
+                  </Link>
+                  <Link className="nav-item" to="#action2">
+                    Người theo dõi tôi
+                  </Link>
+                  <div className="button-navbar">
+                    {userInfo ? (
+                      <div className="user-dropdown d-flex justify-content-center">
+                        <Nav.Item>
+                          <img
+                            className="image-item item-left"
+                            src={notification}
+                            alt="buying"
+                          ></img>
+                        </Nav.Item>
+                        <Dropdown align="end">
+                          <Dropdown.Toggle
+                            id="dropdown-custom-components"
+                            as={CustomToggle}
+                          ></Dropdown.Toggle>
+                          <Dropdown.Menu className="dropdown-custom">
+                            <Dropdown.ItemText
+                              eventKey="1"
+                              className="dropdown-custom-a"
+                            >
+                              Hello, {userInfo.lname}
+                            </Dropdown.ItemText>
+                            <Dropdown.Item eventKey="2">Profile</Dropdown.Item>
+                            <Dropdown.Item
+                              eventKey="1"
+                              onClick={() => dispatch(logout())}
+                            >
+                              Log out
+                            </Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      </div>
+                    ) : (
+                      <>
+                        <a
+                          className="btn btn-primary login-button"
+                          href="/login"
+                        >
+                          Đăng nhập
+                        </a>
+                        <a className="btn btn-primary" href="/login">
+                          Đăng kí
+                        </a>
+                      </>
+                    )}
+                  </div>
+                </Nav>
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+      </div>
+      <Outlet />
+      <Footers />
     </>
   );
 }

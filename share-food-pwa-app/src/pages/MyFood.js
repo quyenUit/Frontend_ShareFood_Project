@@ -6,7 +6,7 @@ const MyFood = () => {
   return (
     <div>
       <ButtonFood />
-      <PostFood />
+      {/* <PostFood /> */}
     </div>
   );
 };
