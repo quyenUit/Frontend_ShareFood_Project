@@ -7,7 +7,6 @@ function HomePage() {
   const {userInfo} = useSelector((state) => state.user)
   return (
     <>
-      <SearchFood />
       {
         userInfo?
         (

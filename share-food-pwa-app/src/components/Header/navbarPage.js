@@ -13,6 +13,7 @@ import Footers from "../Footer/Footers";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/users/userSlice";
 import { Link } from "react-router-dom";
+import SearchFood from "../Body/Utils/SearchFood";
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
     href={ref}
@@ -32,8 +33,41 @@ function NavbarPage() {
   const dispatch = useDispatch();
   return(
       <>
-        <div>
-          <Navbar bg="light" expand="sm" style={{backgroundColor: "#FFF8EA"}}>
+        {
+          !userInfo?(
+          <>
+            <Navbar bg="light" expand="sm" style={{backgroundColor: "#FFF8EA"}}>
+              <Container style={{padding: "0"}} fluid>
+                <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
+                <Navbar.Offcanvas
+                  id={`offcanvasNavbar-expand`}
+                  aria-labelledby={`offcanvasNavbarLabel-expand`}
+                  placement="end"
+                >
+                  <Offcanvas.Header closeButton>
+                    <Offcanvas.Title id={`offcanvasNavbarLabel-expand`}>
+                      Offcanvas
+                    </Offcanvas.Title>
+                  </Offcanvas.Header>
+                  <Offcanvas.Body>
+                    <Nav className="navbar justify-content-center flex-grow-1 pe-3">                  
+                      <img style={{width: "6rem", margin:"0 2rem"}} src={brandLogo} alt="brand"></img>
+                      <Link to="/" className="nav-item">Home</Link>
+                      <SearchFood />
+                      <div className="button-navbar">
+                          <a className="btn btn-primary login-button" href='/login'>Đăng nhập</a>
+                          <a className="btn btn-primary" href='/login'>Đăng kí</a>
+                      </div>
+                    </Nav>
+                  </Offcanvas.Body>
+                </Navbar.Offcanvas>
+              </Container>
+            </Navbar>
+          </>
+          )
+          :
+          (
+            <Navbar bg="light" expand="sm" style={{backgroundColor: "#FFF8EA"}}>
             <Container style={{padding: "0"}} fluid>
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
               <Navbar.Offcanvas
@@ -52,11 +86,7 @@ function NavbarPage() {
                     <Link to="search" className="nav-item">Tìm món ăn</Link>
                     <img style={{width: "6rem", margin:"0 2rem"}} src={brandLogo} alt="brand"></img>
                     <Link className="nav-item" to="post">Đăng Tin</Link>
-                    <Link className="nav-item" to="#action2">Tin nhắn</Link>
                     <div className="button-navbar">
-                      {
-                        userInfo?
-                        (
                           <div className='user-dropdown d-flex justify-content-center'>
                             <Nav.Item><img className="image-item item-left" src={notification} alt="buying"></img></Nav.Item>
                             <Dropdown align="end">
@@ -68,22 +98,14 @@ function NavbarPage() {
                               </Dropdown.Menu>
                             </Dropdown>
                           </div>
-                        )
-                        :
-                        (
-                          <>
-                            <a className="btn btn-primary login-button" href='/login'>Đăng nhập</a>
-                            <a className="btn btn-primary" href='/login'>Đăng kí</a>
-                          </>
-                        )
-                      }
                     </div>
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>
             </Container>
           </Navbar>
-        </div>
+          )
+        }
         <Outlet />
         <Footers />
     </>

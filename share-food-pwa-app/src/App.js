@@ -16,7 +16,7 @@ import PostFood from "./components/Body/PostFood";
 import { useDispatch } from "react-redux";
 import { postList } from "./features/posts/postList";
 import store from "./app/store";
-
+import Search from "./pages/Search";
 function App() {
   store.dispatch(postList());
   return (
@@ -30,7 +30,7 @@ function App() {
           <Route path="follower" element={<FollowerPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<Register />} />
-          <Route path="search" element={<SearchFood />} />
+          <Route path="search" element={<Search />} />
 
           <Route path="post">
             <Route index element={<PostFood />} />
