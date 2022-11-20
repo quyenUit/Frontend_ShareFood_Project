@@ -3,11 +3,14 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const userLogin = createAsyncThunk(
   "user/login",
-  async ({ email, password }, { rejectWithValue }) => {
+  async ({ username, password }, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(
         "https://backend-sharefood-project.herokuapp.com/signup",
-        { email, password }
+        {
+          username,
+          password,
+        }
       );
       return data;
     } catch (error) {

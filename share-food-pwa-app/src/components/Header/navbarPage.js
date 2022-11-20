@@ -109,8 +109,8 @@ function NavbarPage() {
                         >
                           Đăng nhập
                         </a>
-                        <a className="btn btn-primary" href="/login">
-                          Đăng kí
+                        <a className="btn btn-primary" href="/register">
+                          Đăng ký
                         </a>
                       </>
                     )}
