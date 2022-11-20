@@ -10,7 +10,15 @@ export const postUpload = createAsyncThunk(
     try {
       const { data } = await axios.post(
         "https://backend-sharefood-project.herokuapp.com/uploadpost",
-        { name, type, dateStart, dateEnd, location, file, email }
+        {
+          name,
+          type,
+          dateStart,
+          dateEnd,
+          location,
+          file,
+          email,
+        }
       );
       return data;
     } catch (err) {
