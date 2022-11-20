@@ -17,7 +17,7 @@ const RegisterInput = () => {
     //https://agriculture-app12-api.herokuapp.com/signup
     if (Password === Password1) {
       await axios
-        .post("http://localhost:3001/register", {
+        .post("https://backend-sharefood-project.herokuapp.com/register", {
           fname: fname,
           lname: lname,
           dob: date,
@@ -32,9 +32,7 @@ const RegisterInput = () => {
             navigate("/register");
           }
         })
-        .catch((e) => {
-
-        });
+        .catch((e) => {});
     }
   };
 
