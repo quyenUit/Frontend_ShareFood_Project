@@ -144,8 +144,8 @@ function NavbarPage() {
                           className="btn btn-primary login-button" href="/login">
                           Đăng nhập
                         </a>
-                        <a className="btn btn-primary" href="/login">
-                          Đăng kí
+                        <a className="btn btn-primary" href="/register">
+                          Đăng ký
                         </a>
                       </>
                   </div>

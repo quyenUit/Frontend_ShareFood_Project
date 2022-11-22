@@ -27,7 +27,6 @@
   align-items: center;
   gap: 0 10px;
 }
-.toggle-control > * {
+.toggle-control {
   cursor: pointer;
 }
-

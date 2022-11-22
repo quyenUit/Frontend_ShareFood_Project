@@ -74,7 +74,7 @@ const PostFood = () => {
               <form className="post-form" onSubmit={UploadPost}>
                 <div className="form-group row mb-3">
                   <label for="foodname" className="col-sm-2 col-form-label">
-                    Tên món ăn
+                    Tên món ăn:
                   </label>
                   <div className="col-sm-10">
                     <input
@@ -90,7 +90,7 @@ const PostFood = () => {
                 <fieldset className="form-group ">
                   <div className="row mb-3">
                     <legend className="col-form-label col-sm-2 pt-0">
-                      Loại thực phẩm
+                      Loại thực phẩm:
                     </legend>
 
                     <div className="col-sm-10">
@@ -252,7 +252,22 @@ const PostFood = () => {
 
                 <div className="form-group row mb-3">
                   <label for="gettimes" className="col-sm-2 col-form-label">
-                    Thời gian cho từ
+                    Số lượng cho:
+                  </label>
+                  <div className="col-sm-10">
+                    <input
+                      type="number"
+                      className="form-control"
+                      id="gettime"
+                      placeholder="Nhập số lượng cho"
+                      onChange={(e) => setDateStart(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group row mb-3">
+                  <label for="gettimes" className="col-sm-2 col-form-label">
+                    Thời gian cho từ:
                   </label>
                   <div className="col-sm-10">
                     <input
@@ -267,7 +282,7 @@ const PostFood = () => {
 
                 <div className="form-group row mb-3">
                   <label for="gettimes" className="col-sm-2 col-form-label">
-                    Đến
+                    Đến:
                   </label>
                   <div className="col-sm-10">
                     <input
@@ -285,7 +300,7 @@ const PostFood = () => {
                     for="inputPassword3"
                     className="col-sm-2 col-form-label"
                   >
-                    Địa chỉ
+                    Địa chỉ:
                   </label>
                   <div className="col-sm-10">
                     <input
