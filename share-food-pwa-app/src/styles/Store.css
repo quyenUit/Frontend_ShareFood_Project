@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&family=Montserrat:wght@300;500;700&family=Nunito+Sans:wght@600;800&display=swap');
 .store-food{
-    border-top: 2px solid #B09B71;
     padding-top: 1rem;
+}
+
+.body-background{
+    background-color: #DFD3C3;
 }
 
 h3{
@@ -55,9 +58,10 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border: 2px solid #AD8B73;
+    border: 6px solid #AD8B73;
     box-shadow: 0 0 30px -10px black;
     overflow: hidden;
+    border-radius: 5px;
 }
 
 .card-blur {

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getPostStatus } from "../../features/posts/postSlice";
 import { resetStatus } from "../../features/posts/postSlice";
+import { useNotification } from "use-toast-notification";
 const PostFood = () => {
   const [nameFood, setNameFood] = useState("");
   const [type, setType] = useState("");
@@ -14,11 +15,13 @@ const PostFood = () => {
   const [dateEnd, setDateEnd] = useState(null);
   const [location, setLocation] = useState("");
   const [image, setImage] = useState(null);
+  const [amount, setAmount] = useState(null);
   const { userInfo } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const postStatus = useSelector(getPostStatus);
-
+  const notification = useNotification();
+  
   function handleChange(e) {
     const file = e.target.files[0];
     setFileToBase(file);
@@ -35,6 +38,11 @@ const PostFood = () => {
   useEffect(() => {
     if (postStatus === "succeeded") {
       dispatch(resetStatus());
+      notification.show({
+        message: 'Bạn đã đăng thành công', 
+        title: 'Thành công',
+        variant: 'success'
+      })
       navigate("/");
     }
   }, [navigate, postStatus]);
@@ -47,7 +55,9 @@ const PostFood = () => {
     location: location,
     file: image,
     email: userInfo.email,
+    amount: Number(amount)
   };
+
 
   const UploadPost = async (event) => {
     event.preventDefault();
@@ -284,6 +294,23 @@ const PostFood = () => {
                       id="inputPassword3"
                       placeholder="Địa chỉ"
                       onChange={(e) => setLocation(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group row mb-3">
+                  <label
+                    for="inputAmount"
+                    className="col-sm-2 col-form-label"
+                  >
+                    Số lượng
+                  </label>
+                  <div className="col-sm-2">
+                    <input
+                      type="number"
+                      className="form-control"
+                      id="inputAmount"
+                      onChange={(e) => setAmount(e.target.value)}
                     />
                   </div>
                 </div>

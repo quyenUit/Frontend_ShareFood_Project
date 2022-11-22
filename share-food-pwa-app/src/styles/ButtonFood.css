@@ -1,10 +1,12 @@
 .button-food-p {
   display: flex;
   margin: 20px;
+  padding-left: 20px;
   height: 70px;
-  width: 150px;
+  width: 130px;
   align-items: center;
   color: floralwhite;
-  font-size: 26px;
+  font-size: 20px;
   background-color: orange;
+  border-radius: 35px;
 }

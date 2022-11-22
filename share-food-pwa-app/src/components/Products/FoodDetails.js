@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import ImgFood1 from "../../images/cardfood-1.jpg";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import Button from "react-bootstrap/Button";
 import {useParams} from "react-router-dom";
