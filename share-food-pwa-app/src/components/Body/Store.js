@@ -4,7 +4,7 @@ import CardFoodList from './CardFoodList';
 
 const Store = () => {
   return (
-    <div>
+    <div className='body-background'>
       <div className='store-food col-lg-12'>
           <div className='d-flex justify-content-center near-food'>
               <h3>GẦN ĐÂY</h3>
