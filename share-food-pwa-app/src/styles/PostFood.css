@@ -23,3 +23,25 @@
   border: 5px solid dimgrey;
   border-radius: 20px;
 }
+
+.uploadpost-button{
+  margin: 2rem;
+}
+
+.uploadpost-button a{
+  text-decoration: none;
+  font-size: 1.3rem;
+  padding: 0.7rem;
+  background-color: #9E7676;
+  color: #FAF7F0;
+  border-radius: 1.4rem;
+}
+
+.uploadpost-button a:hover{
+  background-color: #CFB997;
+  transition: 1s;
+}
+
+.myfood-item{
+  background-color: #fcfefe;
+}

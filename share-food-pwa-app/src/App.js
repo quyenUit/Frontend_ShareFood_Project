@@ -6,24 +6,27 @@ import LoginPage from "./pages/LoginPage";
 import Register from "./pages/Register";
 import FoodDetails from "./components/Products/FoodDetails";
 import NavbarPage from "./components/Header/navbarPage";
-import SearchFood from "./components/Body/Utils/SearchFood";
 import MyFoodPage from "./pages/MyFood";
 import MyGetFoodPage from "./pages/MyGetFood";
 import FollowingPage from "./pages/Following";
 import FollowerPage from "./pages/Follower";
-import { Provider } from "react-redux";
 import PostFood from "./components/Body/PostFood";
 import { useDispatch } from "react-redux";
 import { postList } from "./features/posts/postList";
 import store from "./app/store";
+import Search from "./pages/Search";
 import AdminPage from "./pages/AdminPage";
 import ProfileUserPage from "./pages/ProfileUserPage";
 import ProfileUserDetail from "./features/users/ProfileUserDetail";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
 
 function App() {
-  store.dispatch(postList());
+  const dispatch = useDispatch();
+  dispatch(postList());
+  const persistor = persistStore(store);
   return (
-    <Provider store={store}>
+    <PersistGate persistor={persistor}>
       <Routes>
         <Route path="admin" element={<AdminPage />} />
         <Route path="/" element={<NavbarPage />}>
@@ -34,17 +37,15 @@ function App() {
           <Route path="follower" element={<FollowerPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<Register />} />
-          <Route path="search" element={<SearchFood />} />
-          <Route path="profile" element={<ProfileUserPage />}></Route>
-          <Route path="detail" element={<ProfileUserDetail />} />
-
+          <Route path="search" element={<Search />} />
+          <Route path="uploadpost" element={<PostFood />} />
           <Route path="post">
-            <Route index element={<PostFood />} />
+            <Route index element={<MyFoodPage />} />
             <Route path=":postId" element={<FoodDetails />} />
           </Route>
         </Route>
       </Routes>
-    </Provider>
+    </PersistGate>
   );
 }
 
