@@ -59,3 +59,8 @@
 
 .main-logo {
 }
+
+.profile-user {
+  text-decoration: none;
+  color: black;
+}

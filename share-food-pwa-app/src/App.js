@@ -17,6 +17,8 @@ import { useDispatch } from "react-redux";
 import { postList } from "./features/posts/postList";
 import store from "./app/store";
 import AdminPage from "./pages/AdminPage";
+import ProfileUserPage from "./pages/ProfileUserPage";
+import ProfileUserDetail from "./features/users/ProfileUserDetail";
 
 function App() {
   store.dispatch(postList());
@@ -33,6 +35,8 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<Register />} />
           <Route path="search" element={<SearchFood />} />
+          <Route path="profile" element={<ProfileUserPage />}></Route>
+          <Route path="detail" element={<ProfileUserDetail />} />
 
           <Route path="post">
             <Route index element={<PostFood />} />
