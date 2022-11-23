@@ -4,7 +4,7 @@ import axios from "axios";
 export const postUpload = createAsyncThunk(
   "post/upload",
   async (
-    { name, type, dateStart, dateEnd, location, file, email },
+    { name, type, dateStart, dateEnd, location, file, email , amount},
     { rejectWithValue }
   ) => {
     try {
@@ -18,6 +18,7 @@ export const postUpload = createAsyncThunk(
           location,
           file,
           email,
+          amount
         }
       );
       return data;

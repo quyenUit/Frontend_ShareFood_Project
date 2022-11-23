@@ -41,3 +41,6 @@ export const {resetStatus} = postSlice.actions
 export const getPostStatus = (state) => state.post.status
 export const getPostId = (state, postId) => 
     state.post.post.find(post => post.id === postId)
+
+export const getUserPostId = (state, userId) =>
+    state.post.post.filter(post => post.email === userId)

@@ -12,6 +12,7 @@ const ButtonFood = () => {
     let path = `/post`;
     navigate(path);
   };
+  
   return (
     <Navbar expand="lg" className="Nav-button-bg" style={{ height: "5%" }}>
       <Container fluid>

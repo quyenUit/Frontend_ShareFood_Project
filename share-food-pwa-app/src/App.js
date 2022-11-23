@@ -36,9 +36,9 @@ function App() {
             <Route path="login" element={<LoginPage />} />
             <Route path="register" element={<Register />} />
             <Route path="search" element={<Search />} />
-
+            <Route path="uploadpost" element={<PostFood />} />
             <Route path="post">
-              <Route index element={<PostFood />} />
+              <Route index element={<MyFoodPage />}  />
               <Route path=":postId" element={<FoodDetails />} />
             </Route>
           </Route>
