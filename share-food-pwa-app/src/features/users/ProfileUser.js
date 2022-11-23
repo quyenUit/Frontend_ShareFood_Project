@@ -41,7 +41,7 @@ const ProfileUser = () => {
                   </div>
                 </div>
                 <div className="UltiRow">
-                  <a href="/detail">
+                  <a href="/profile/edit">
                     <button className="EditProfile">
                       {" "}
                       Chỉnh sửa trang cá nhân

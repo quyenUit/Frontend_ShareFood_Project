@@ -39,6 +39,8 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="search" element={<Search />} />
           <Route path="uploadpost" element={<PostFood />} />
+          <Route path="profile" element={<ProfileUserPage />} />
+          <Route path="/profile/edit" element={<ProfileUserDetail />} />
           <Route path="post">
             <Route index element={<MyFoodPage />} />
             <Route path=":postId" element={<FoodDetails />} />

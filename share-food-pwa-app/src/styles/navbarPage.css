@@ -1,16 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&family=Montserrat:wght@300;500;700&family=Nunito+Sans:wght@600;800&display=swap");
 
-
-.navbar-container{
+.navbar-container {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   font-weight: bold;
   border-bottom: 2px solid #a47e3b;
-  background-color: #FFF8EA;
+  background-color: #fff8ea;
   padding: 0px;
 }
 
-.navbar{
+.navbar {
   padding: 0px;
 }
 
@@ -58,33 +57,29 @@
   margin-right: 0;
 }
 
-.row-navbar{
+.row-navbar {
   height: 100%;
 }
-
-<<<<<<< HEAD
-.profile-user {
-  text-decoration: none;
-  color: black;
-}
-=======
-.row-navbar .col-lg-2{
+.row-navbar .col-lg-2 {
   text-align: center;
   padding: 2rem 1rem;
 }
 
-.row-navbar .nav-item-all:hover{
-  background-color: #F5E8C7;
+.row-navbar .nav-item-all:hover {
+  background-color: #f5e8c7;
   transition: 1s;
 }
 
-
 @media only screen and (max-width: 1117px) {
-  .navbar{
+  .navbar {
     height: 30%;
   }
-  .row-navbar{
+  .row-navbar {
     margin: 1rem 0;
   }
 }
->>>>>>> ce88e27ba409e87196c6f6d58ec56bcd6e2dc485
+
+.user-profile-nav {
+  text-decoration: none;
+  color: black;
+}

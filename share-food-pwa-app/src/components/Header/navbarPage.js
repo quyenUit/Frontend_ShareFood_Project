@@ -95,9 +95,13 @@ function NavbarPage() {
                               eventKey="1"
                               className="dropdown-custom-a"
                             >
-                              Hello, {userInfo.lname}
+                              Hello, {userInfo.username}
                             </Dropdown.ItemText>
-                            <Dropdown.Item eventKey="2">Profile</Dropdown.Item>
+                            <Dropdown.Item eventKey="2">
+                              <Link to="/profile" className="user-profile-nav">
+                                Profile
+                              </Link>
+                            </Dropdown.Item>
                             <Dropdown.Item
                               eventKey="1"
                               onClick={() => dispatch(logout())}
