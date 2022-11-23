@@ -34,9 +34,7 @@ function NavbarPage() {
   return (
     <>
       <div className="navbar-item-all">
-      {
-        userInfo?
-        (
+        {userInfo ? (
           <Navbar expand="sm" className="navbar-container">
             <Container style={{ padding: "0" }} fluid>
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
@@ -45,8 +43,7 @@ function NavbarPage() {
                 aria-labelledby={`offcanvasNavbarLabel-expand`}
                 placement="end"
               >
-                <Offcanvas.Header closeButton>
-                </Offcanvas.Header>
+                <Offcanvas.Header closeButton></Offcanvas.Header>
                 <Offcanvas.Body>
                   <Nav className="navbar justify-content-center flex-grow-1 pe-3">
                     <img
@@ -81,81 +78,80 @@ function NavbarPage() {
                         </Link>
                       </Col>
                       <Col lg="2" className="d-flex">
-                          <Nav.Item>
-                            <img
-                              className="image-item item-left"
-                              src={notification}
-                              alt="buying"
-                            ></img>
-                          </Nav.Item>
-                          <Dropdown align="end">
-                            <Dropdown.Toggle
-                              id="dropdown-custom-components"
-                              as={CustomToggle}
-                            ></Dropdown.Toggle>
-                            <Dropdown.Menu className="dropdown-custom">
-                              <Dropdown.ItemText
-                                eventKey="1"
-                                className="dropdown-custom-a"
-                              >
-                                Hello, {userInfo.lname}
-                              </Dropdown.ItemText>
-                              <Dropdown.Item eventKey="2">Profile</Dropdown.Item>
-                              <Dropdown.Item
-                                eventKey="1"
-                                onClick={() => dispatch(logout())}
-                              >
-                                Log out
-                              </Dropdown.Item>
-                            </Dropdown.Menu>
-                          </Dropdown>
-                        </Col>
+                        <Nav.Item>
+                          <img
+                            className="image-item item-left"
+                            src={notification}
+                            alt="buying"
+                          ></img>
+                        </Nav.Item>
+                        <Dropdown align="end">
+                          <Dropdown.Toggle
+                            id="dropdown-custom-components"
+                            as={CustomToggle}
+                          ></Dropdown.Toggle>
+                          <Dropdown.Menu className="dropdown-custom">
+                            <Dropdown.ItemText
+                              eventKey="1"
+                              className="dropdown-custom-a"
+                            >
+                              Hello, {userInfo.lname}
+                            </Dropdown.ItemText>
+                            <Dropdown.Item eventKey="2">Profile</Dropdown.Item>
+                            <Dropdown.Item
+                              eventKey="1"
+                              onClick={() => dispatch(logout())}
+                            >
+                              Log out
+                            </Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      </Col>
                     </Row>
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>
             </Container>
-        </Navbar>
-        ):
-        (
+          </Navbar>
+        ) : (
           <Navbar expand="sm" className="navbar-container">
-          <Container style={{ padding: "0" }} fluid>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
-            <Navbar.Offcanvas
-              id={`offcanvasNavbar-expand`}
-              aria-labelledby={`offcanvasNavbarLabel-expand`}
-              placement="end"
-            >
-              <Offcanvas.Header closeButton>
-              </Offcanvas.Header>
-              <Offcanvas.Body>
-                <Nav className="navbar justify-content-center flex-grow-1 pe-3">
-                  <img
-                    style={{ width: "6rem", margin: "2rem 3rem" }}
-                    src={brandLogo}
-                    alt="brand"
-                  ></img>
-                  <Link to="/" className="nav-item">
-                    Trang chủ
-                  </Link>
-                  <div className="button-navbar">
+            <Container style={{ padding: "0" }} fluid>
+              <Navbar.Toggle aria-controls={`offcanvasNavbar-expand`} />
+              <Navbar.Offcanvas
+                id={`offcanvasNavbar-expand`}
+                aria-labelledby={`offcanvasNavbarLabel-expand`}
+                placement="end"
+              >
+                <Offcanvas.Header closeButton></Offcanvas.Header>
+                <Offcanvas.Body>
+                  <Nav className="navbar justify-content-center flex-grow-1 pe-3">
+                    <img
+                      style={{ width: "6rem", margin: "2rem 3rem" }}
+                      src={brandLogo}
+                      alt="brand"
+                    ></img>
+                    <Link to="/" className="nav-item">
+                      Trang chủ
+                    </Link>
+                    <div className="button-navbar">
                       <>
                         <a
-                          className="btn btn-primary login-button" href="/login">
+                          className="btn btn-primary login-button"
+                          href="/login"
+                        >
                           Đăng nhập
                         </a>
                         <a className="btn btn-primary" href="/register">
                           Đăng ký
                         </a>
                       </>
-                  </div>
-                </Nav>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
-        )
-      }
+                    </div>
+                  </Nav>
+                </Offcanvas.Body>
+              </Navbar.Offcanvas>
+            </Container>
+          </Navbar>
+        )}
       </div>
       <Outlet />
       <Footers />

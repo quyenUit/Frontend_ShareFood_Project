@@ -16,6 +16,8 @@ import { postList } from "./features/posts/postList";
 import store from "./app/store";
 import Search from "./pages/Search";
 import AdminPage from "./pages/AdminPage";
+import ProfileUserPage from "./pages/ProfileUserPage";
+import ProfileUserDetail from "./features/users/ProfileUserDetail";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 
@@ -24,26 +26,26 @@ function App() {
   dispatch(postList());
   const persistor = persistStore(store);
   return (
-      <PersistGate persistor={persistor}>
-        <Routes>
-          <Route path="admin" element={<AdminPage />} />
-          <Route path="/" element={<NavbarPage />}>
-            <Route index element={<HomePage />} />
-            <Route path="myfood" element={<MyFoodPage />} />
-            <Route path="mygetfood" element={<MyGetFoodPage />} />
-            <Route path="following" element={<FollowingPage />} />
-            <Route path="follower" element={<FollowerPage />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<Register />} />
-            <Route path="search" element={<Search />} />
-            <Route path="uploadpost" element={<PostFood />} />
-            <Route path="post">
-              <Route index element={<MyFoodPage />}  />
-              <Route path=":postId" element={<FoodDetails />} />
-            </Route>
+    <PersistGate persistor={persistor}>
+      <Routes>
+        <Route path="admin" element={<AdminPage />} />
+        <Route path="/" element={<NavbarPage />}>
+          <Route index element={<HomePage />} />
+          <Route path="myfood" element={<MyFoodPage />} />
+          <Route path="mygetfood" element={<MyGetFoodPage />} />
+          <Route path="following" element={<FollowingPage />} />
+          <Route path="follower" element={<FollowerPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<Register />} />
+          <Route path="search" element={<Search />} />
+          <Route path="uploadpost" element={<PostFood />} />
+          <Route path="post">
+            <Route index element={<MyFoodPage />} />
+            <Route path=":postId" element={<FoodDetails />} />
           </Route>
-        </Routes>
-      </PersistGate>  
+        </Route>
+      </Routes>
+    </PersistGate>
   );
 }
 
