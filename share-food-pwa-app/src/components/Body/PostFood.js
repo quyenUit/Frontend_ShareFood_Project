@@ -21,7 +21,7 @@ const PostFood = () => {
   const dispatch = useDispatch();
   const postStatus = useSelector(getPostStatus);
   const notification = useNotification();
-  
+
   function handleChange(e) {
     const file = e.target.files[0];
     setFileToBase(file);
@@ -39,10 +39,10 @@ const PostFood = () => {
     if (postStatus === "succeeded") {
       dispatch(resetStatus());
       notification.show({
-        message: 'Bạn đã đăng thành công', 
-        title: 'Thành công',
-        variant: 'success'
-      })
+        message: "Bạn đã đăng thành công",
+        title: "Thành công",
+        variant: "success",
+      });
       navigate("/");
     }
   }, [navigate, postStatus]);
@@ -55,9 +55,8 @@ const PostFood = () => {
     location: location,
     file: image,
     email: userInfo.email,
-    amount: Number(amount)
+    amount: Number(amount),
   };
-
 
   const UploadPost = async (event) => {
     event.preventDefault();
@@ -250,7 +249,7 @@ const PostFood = () => {
                   </div>
                 </fieldset>
 
-                <div className="form-group row mb-3">
+                {/* <div className="form-group row mb-3">
                   <label for="gettimes" className="col-sm-2 col-form-label">
                     Số lượng cho:
                   </label>
@@ -263,7 +262,7 @@ const PostFood = () => {
                       onChange={(e) => setDateStart(e.target.value)}
                     />
                   </div>
-                </div>
+                </div> */}
 
                 <div className="form-group row mb-3">
                   <label for="gettimes" className="col-sm-2 col-form-label">
@@ -314,10 +313,7 @@ const PostFood = () => {
                 </div>
 
                 <div className="form-group row mb-3">
-                  <label
-                    for="inputAmount"
-                    className="col-sm-2 col-form-label"
-                  >
+                  <label for="inputAmount" className="col-sm-2 col-form-label">
                     Số lượng
                   </label>
                   <div className="col-sm-2">

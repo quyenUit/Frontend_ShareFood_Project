@@ -1,12 +1,7 @@
 .search-box {
   display: flex;
-<<<<<<< HEAD
-  margin: auto;
-  width: 45%;
-=======
   padding: 0 1rem;
   width: 40%;
->>>>>>> ce88e27ba409e87196c6f6d58ec56bcd6e2dc485
 }
 
 .btn-search {
