@@ -7,12 +7,6 @@
     background-color: #DFD3C3;
 }
 
-h3{
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #665A48;
-}
-
 p{
     color: #865439;
 }
@@ -21,6 +15,17 @@ p{
     border-bottom: 2px solid #B09B71;
     margin: 2rem 10rem;
     padding: 1rem 0;
+}
+
+.near-food h2{
+    font-weight: bold;
+    color: #665A48;
+}
+
+.near-food-text p{
+    color: #665A48;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .food-name{
@@ -185,4 +190,17 @@ svg#curve {
 
 .row-food-container{
     margin: 3rem 1rem;
+}
+
+.go-to-list-food{
+    padding: 0 4rem 2rem 0;
+}
+
+.go-to-list-food a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color:#665A48;
+    background-color: #FFF6EA;
+    padding: 0.5rem;
+    border-radius: 1rem;
 }

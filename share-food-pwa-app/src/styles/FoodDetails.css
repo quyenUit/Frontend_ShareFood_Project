@@ -38,7 +38,11 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: goldenrod;
-  text-align: right;
+  margin-right: 0.5rem;
+}
+
+.order-number-food input{
+  border-radius: 0.5rem;
 }
 
 .food-info h4 {
