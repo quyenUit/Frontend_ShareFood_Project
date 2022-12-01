@@ -1,20 +1,38 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import Button from "react-bootstrap/Button";
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import "../../styles/FoodDetails.css";
-import { getPostId } from "../../features/posts/postSlice";
-import { useSelector } from "react-redux";
+import { getPostId, updateOrderPost } from "../../features/posts/postSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { ReturnValueZero } from "./ReturnValueZero";
+import { useState } from "react";
+import { useNotification } from "use-toast-notification";
 
 const FoodDetails = () => {
   const {postId} = useParams();
   const post = useSelector((state) => getPostId(state, Number(postId)));
   const date = new Date(post.timeStart);
   const dateEnd = new Date(post.timeEnd);
-  const timeStart = (date.getHours() + ":" + date.getMinutes() + "  -  " + dateEnd.getHours() + ":" + dateEnd.getMinutes())
-  .toString();
+  const timeStart =  (date.getHours() + ":" + ReturnValueZero(date.getMinutes())+ "  -  " + dateEnd.getHours() + ":" + ReturnValueZero(dateEnd.getMinutes())).toString();
+  const [amount, setAmount] = useState(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const notification = useNotification();
+  const TakeOrder = () => {
+    try{
+      dispatch(updateOrderPost({id: post._id, amount: post.amount - Number(amount)})).unwrap()
+      notification.show({
+        message: 'Bạn đã yêu cầu thành công', 
+        title: 'Thành công',
+        variant: 'success'
+      })
+      navigate("/")
+    }catch(err){
+      console.error('Failed to save the post', err)
+    }
+  }
   return (
     <>
       <section>
@@ -37,7 +55,7 @@ const FoodDetails = () => {
                       height="450"
                       width="400"
                       fill="transparent"
-                    />
+                    /> 
                     <animate
                       attributeName="d"
                       to="M0,50 Q80,100 400,50 V150 H0 V50"
@@ -134,27 +152,19 @@ const FoodDetails = () => {
               </Form.Group>
             </Form>
           </Row>
-          <Row className="justify-content-md-center">
-            <Col className="order-number-food" xs={6}>
+          <Row>
+            <Col className="order-number-food d-flex justify-content-center" lg="12">
               <h3>Số lượng muốn nhận: </h3>
-            </Col>
-            <Col xs={6}>
-              <div className="buttons-added">
-                <CiCircleMinus className="Ci-Minus" />
-                <input type="number" className="input-number" />
-                <CiCirclePlus className="Ci-Plus" />
-              </div>
+              <input type="number" className="input-number" onChange={(e) => setAmount(e.target.value)}/>
             </Col>
           </Row>
-
-          <div id="food-button">
-            <Button
-              as="input"
-              type="submit"
-              value=" Gửi yêu cầu nhận thực phẩm"
-              className="btn-warning food-btn"
-            />{" "}
-          </div>
+          <Row>
+            <Col lg="12" className="d-flex justify-content-center">
+              <Button onClick={TakeOrder}>
+                Gửi yêu cầu
+              </Button>
+            </Col>
+          </Row>
         </Container>
       </section>
     </>

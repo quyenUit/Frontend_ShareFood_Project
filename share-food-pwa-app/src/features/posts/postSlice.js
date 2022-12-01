@@ -1,11 +1,23 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { postUpload } from "./postUpload";
+
 import { postList } from "./postList";
+import axios from "axios";
+import { ApiURL } from "../../components/constants/apiURL";
 const initialState = {
   post: [],
   status: "idle",
   error: null,
 };
+
+export const updateOrderPost = createAsyncThunk('posts/order', async(initialPost) => {
+    const {id} = initialPost;
+
+    try{
+        const response = await axios.put(`http://localhost:3001/post/update/:${id}`, initialPost)
+        return response.data;
+    }catch(err){
+        return initialPost;
+    }
+})
 
 const postSlice = createSlice({
   name: "post",
