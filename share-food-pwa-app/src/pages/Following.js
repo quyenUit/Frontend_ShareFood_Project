@@ -1,7 +1,8 @@
 import React from "react";
+import MyFollowing from "../components/Body/MyFollowing";
 
 const Following = () => {
-  return <div>Following</div>;
+  return <MyFollowing />;
 };
 
 export default Following;

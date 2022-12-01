@@ -11,7 +11,11 @@ import {
 } from "react-icons/fi";
 import "../../styles/ProfileUser.css";
 import imgNotFound from "../../images/orca.gif";
+import { useSelector, useDispatch } from "react-redux";
+
 const ProfileUser = () => {
+  const { userInfo } = useSelector((state) => state.user);
+
   return (
     <div>
       <section className="profile-user-section-1">
@@ -25,28 +29,32 @@ const ProfileUser = () => {
               </div>
 
               <div className="InfoWrapper">
-                <span className="username">User name</span>
+                <span className="username">
+                  {" "}
+                  <b>{userInfo.username}</b>{" "}
+                </span>
                 <div className="FollowRow">
                   <div className="Follower">
                     <a href="#!">
-                      <b>0 </b>
-                      Nguời theo dõi
+                      <b> {userInfo.follower} </b>
+                      Được theo dõi
                     </a>
                   </div>
                   <div>
                     <a href="#!">
-                      <b>0 </b>
+                      <b> {userInfo.following} </b>
                       Đang theo dõi
                     </a>
                   </div>
                 </div>
+
                 <div className="UltiRow">
-                  <a href="/profile/edit">
+                  <Link to="/profile/edit">
                     <button className="EditProfile">
                       {" "}
                       Chỉnh sửa trang cá nhân
                     </button>
-                  </a>
+                  </Link>
                   <button className="circleButton">
                     <span className="">
                       <FiMoreHorizontal>
@@ -61,22 +69,22 @@ const ProfileUser = () => {
               <div className="itemRow">
                 <FiCalendar className="icon-profile" />
                 <b>Ngày tham gia:</b>
-                <span> 12/11/2022</span>
+                <span> {userInfo.createdate}</span>
               </div>
               <div className="itemRow">
                 <FiMapPin className="icon-profile" />
                 <b>Địa chỉ:</b>
-                <span> abc/123/xyz</span>
+                <span> {userInfo.address}</span>
               </div>
               <div className="itemRow">
                 <FiPhone className="icon-profile" />
                 <b>Số điện thoại:</b>
-                <span> 0123456789</span>
+                <span> {userInfo.phone}</span>
               </div>
               <div className="itemRow">
                 <FiMail className="icon-profile" />
                 <b>Email:</b>
-                <span> abc@gmail.com</span>
+                <span> {userInfo.email}</span>
               </div>
             </Col>
           </Row>
