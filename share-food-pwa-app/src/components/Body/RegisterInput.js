@@ -18,6 +18,7 @@ const RegisterInput = () => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [Password1, setPassword1] = useState("");
+  // const [Createdate, setCreatedate] = useState("");
   const navigate = useNavigate();
   const HandleSubmit = async (event) => {
     event.preventDefault();
@@ -25,7 +26,7 @@ const RegisterInput = () => {
     //https://agriculture-app12-api.herokuapp.com/signup
     if (Password === Password1) {
       await axios
-        .post("https://backend-sharefood-project.herokuapp.com/register", {
+        .post("http://localhost:3001/register", {
           username: Username,
           email: Email,
           password: Password,

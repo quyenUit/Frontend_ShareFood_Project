@@ -4,23 +4,20 @@ import axios from "axios";
 export const postUpload = createAsyncThunk(
   "post/upload",
   async (
-    { name, type, dateStart, dateEnd, location, file, email , amount},
+    { name, type, dateStart, dateEnd, location, file, email, amount },
     { rejectWithValue }
   ) => {
     try {
-      const { data } = await axios.post(
-        "https://backend-sharefood-project.herokuapp.com/uploadpost",
-        {
-          name,
-          type,
-          dateStart,
-          dateEnd,
-          location,
-          file,
-          email,
-          amount
-        }
-      );
+      const { data } = await axios.post("http://localhost:3001/uploadpost", {
+        name,
+        type,
+        dateStart,
+        dateEnd,
+        location,
+        file,
+        email,
+        amount,
+      });
       return data;
     } catch (err) {
       if (err.response && err.response.data.message) {
