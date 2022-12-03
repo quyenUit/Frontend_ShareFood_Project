@@ -13,7 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const LoginInput = () => {
-  const loginSuccess = () => toast("Đăng nhập thành!");
+  const loginSuccess = () => toast("Đăng nhập thành công!");
   const [Username, setUsername] = useState("");
   // const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");

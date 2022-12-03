@@ -5,10 +5,13 @@ export const userLogin = createAsyncThunk(
   "user/login",
   async ({ username, password }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post("http://localhost:3001/signup", {
-        username,
-        password,
-      });
+      const { data } = await axios.post(
+        "https://sharefoodapp-369208.as.r.appspot.com/signup",
+        {
+          username,
+          password,
+        }
+      );
       return data;
     } catch (error) {
       if (error.response && error.response.data.message) {
