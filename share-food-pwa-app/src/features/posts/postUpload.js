@@ -8,16 +8,19 @@ export const postUpload = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-      const { data } = await axios.post("http://localhost:3001/uploadpost", {
-        name,
-        type,
-        dateStart,
-        dateEnd,
-        location,
-        file,
-        email,
-        amount,
-      });
+      const { data } = await axios.post(
+        "https://sharefoodapp-369208.as.r.appspot.com/uploadpost",
+        {
+          name,
+          type,
+          dateStart,
+          dateEnd,
+          location,
+          file,
+          email,
+          amount,
+        }
+      );
       return data;
     } catch (err) {
       if (err.response && err.response.data.message) {
