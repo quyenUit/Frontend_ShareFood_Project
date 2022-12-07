@@ -9,7 +9,7 @@ export const postUpload = createAsyncThunk(
   ) => {
     try {
       const { data } = await axios.post(
-        "https://sharefoodapp-369208.as.r.appspot.com/uploadpost",
+        "http://localhost:3001/uploadpost",
         {
           name,
           type,

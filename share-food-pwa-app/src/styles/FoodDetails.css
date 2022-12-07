@@ -72,3 +72,31 @@
 .food-info h4 b{
   width: 15rem;
 }
+
+.button-order-food{
+  margin: 2rem 0;
+}
+
+.button-order-food button{
+  font-size: 1.5rem;
+}
+
+.order-note{
+  margin-top: 2rem;
+}
+
+.order-note-content{
+  height: 10rem;
+  font-size: 1.2rem;
+}
+
+.manage-order{
+  padding: 2rem;
+  background-color: #FEFCF3;
+  border-radius: 2rem;
+}
+
+.manage-order h3{
+  text-align: center;
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,17 @@
+td , th{
+    text-align: center;
+}
+
+.button-approval{
+    margin: 0 0.5rem!important;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+}
+
+.button-approval-accept{
+    background-color: #7DE5ED;
+}
+
+.button-approval-unaccept{
+    background-color: #E97777;
+}

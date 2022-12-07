@@ -17,13 +17,18 @@ import store from "./app/store";
 import Search from "./pages/Search";
 import AdminPage from "./pages/AdminPage";
 import ProfileUserPage from "./pages/ProfileUserPage";
-import ProfileUserDetail from "./features/users/ProfileUserDetail";
+import ProfileUserDetail from "./components/Body/ProfileUserDetail";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import { allUserFetch } from "./features/allUsers/allUserFetch";
+import { fetchOrders } from "./features/orders/orderAction";
 
 function App() {
   const dispatch = useDispatch();
   dispatch(postList());
+  dispatch(fetchOrders());
+  dispatch(allUserFetch());
+  
   const persistor = persistStore(store);
   return (
     <PersistGate persistor={persistor}>
