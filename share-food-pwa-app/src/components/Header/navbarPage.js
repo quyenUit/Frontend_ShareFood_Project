@@ -68,13 +68,13 @@ function NavbarPage() {
                         </Link>
                       </Col>
                       <Col lg="2" className="nav-item-all">
-                        <Link className="nav-item" to="#action2">
+                        <Link className="nav-item" to="/following">
                           Đang theo dõi
                         </Link>
                       </Col>
                       <Col lg="2" className="nav-item-all">
-                        <Link className="nav-item" to="#action2">
-                          Người theo dõi tôi
+                        <Link className="nav-item" to="/follower">
+                          Được theo dõi
                         </Link>
                       </Col>
                       <Col lg="2" className="d-flex">

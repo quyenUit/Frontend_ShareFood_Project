@@ -1,24 +1,29 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {postUpload} from "./postUpload";
 import { postList } from "./postList";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ApiURL } from "../../components/constants/apiURL";
+import { postUpload } from "./postUpload";
 const initialState = {
-    post: [],
-    status: 'idle',
-    error: null
-}
+  post: [],
+  status: "idle",
+  error: null,
+};
 
-export const updateOrderPost = createAsyncThunk('posts/order', async(initialPost) => {
-    const {id} = initialPost;
+export const updateOrderPost = createAsyncThunk(
+  "posts/order",
+  async (initialPost) => {
+    const { id } = initialPost;
 
-    try{
-        const response = await axios.put(`http://localhost:3001/post/update/:${id}`, initialPost)
-        return response.data;
-    }catch(err){
-        return initialPost;
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/post/update/:${id}`,
+        initialPost
+      );
+      return response.data;
+    } catch (err) {
+      return initialPost;
     }
-})
+  }
+);
 
 export const getPost = (state, email) => {
     return state.post.post.filter((item) =>{
@@ -38,33 +43,31 @@ export const getPostManage = (state, postId, email) => {
 
 
 const postSlice = createSlice({
-    name: 'post',
-    initialState,
-    reducers: {
-        resetStatus(state){
-            state.status = 'idle'
-        }
+  name: "post",
+  initialState,
+  reducers: {
+    resetStatus(state) {
+      state.status = "idle";
     },
-    extraReducers: (builder) => {
-        builder
-        .addCase(postUpload.pending, (state) => {
-            state.status = 'loading'
-        })
-        .addCase(postUpload.fulfilled, (state, action) => {
-            state.status = 'succeeded'
-        })
-        .addCase(postUpload.rejected, (state, action) => {
-            state.status = 'failed'
-        })
-        .addCase(postList.pending, (state) => {
-
-        })
-        .addCase(postList.fulfilled, (state, action) => {
-            state.post = action.payload
-            state.showstatus = 'succeeded'
-        })
-    }
-})
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(postUpload.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(postUpload.fulfilled, (state, action) => {
+        state.status = "succeeded";
+      })
+      .addCase(postUpload.rejected, (state, action) => {
+        state.status = "failed";
+      })
+      .addCase(postList.pending, (state) => {})
+      .addCase(postList.fulfilled, (state, action) => {
+        state.post = action.payload;
+        state.showstatus = "succeeded";
+      });
+  },
+});
 
 export default postSlice.reducer
 export const {resetStatus} = postSlice.actions

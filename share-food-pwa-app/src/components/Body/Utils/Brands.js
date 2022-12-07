@@ -1,10 +1,10 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import Brand1 from "../../../images/ajinomoto.png";
-import Brand2 from "../../../images/daily-food.jpg";
-import Brand3 from "../../../images/hao-hao.png";
-import Brand4 from "../../../images/thuc-pham.jpg";
+import Brand1 from "../../../images/cam-da-chien-3.jpg";
+import Brand2 from "../../../images/quan_an_tu_thien_1.jpg";
+import Brand3 from "../../../images/quan_an_tu_thien.jpg";
+import Brand4 from "../../../images/quan-com.jpg";
 
 const Brands = () => {
   return (
@@ -12,8 +12,15 @@ const Brands = () => {
       <Container className=" bg-light my-4">
         <Row className="text-center py-3">
           <Col lg={6} className="m-auto">
-            <h1 className="h1">Our Brands</h1>
-            <p>Các Nhãn hàng đồng tài trợ</p>
+            <p
+              style={{
+                fontSize: "30px",
+                fontFamily: "-webkit-body",
+                color: "#865439",
+              }}
+            >
+              Mạnh thường quân
+            </p>
           </Col>
           <Col lg={9} className="m-auto tempaltemo-carousel">
             <Row className="d-flex flex-row">
@@ -51,6 +58,7 @@ const Brands = () => {
                               className="img-fluid brand-img"
                               src={Brand1}
                               alt="Brand Logo"
+                              style={{ width: "150%", height: "150px" }}
                             />
                           </a>
                         </div>
@@ -60,6 +68,7 @@ const Brands = () => {
                               className="img-fluid brand-img"
                               src={Brand4}
                               alt="Brand Logo"
+                              style={{ width: "150%", height: "150px" }}
                             />
                           </a>
                         </div>
@@ -69,6 +78,7 @@ const Brands = () => {
                               className="img-fluid brand-img"
                               src={Brand2}
                               alt="Brand Logo"
+                              style={{ width: "150%", height: "150px" }}
                             />
                           </a>
                         </div>
@@ -78,6 +88,7 @@ const Brands = () => {
                               className="img-fluid brand-img"
                               src={Brand3}
                               alt="Brand Logo"
+                              style={{ width: "150%", height: "150px" }}
                             />
                           </a>
                         </div>
@@ -93,6 +104,7 @@ const Brands = () => {
                               className="img-fluid brand-img"
                               src={Brand4}
                               alt="Brand Logo"
+                              style={{ width: "150%", height: "150px" }}
                             />
                           </a>
                         </div>
@@ -102,6 +114,7 @@ const Brands = () => {
                               className="img-fluid brand-img"
                               src={Brand1}
                               alt="Brand Logo"
+                              style={{ width: "150%", height: "150px" }}
                             />
                           </a>
                         </div>
@@ -111,6 +124,7 @@ const Brands = () => {
                               className="img-fluid brand-img"
                               src={Brand2}
                               alt="Brand Logo"
+                              style={{ width: "150%", height: "150px" }}
                             />
                           </a>
                         </div>
@@ -120,6 +134,7 @@ const Brands = () => {
                               className="img-fluid brand-img"
                               src={Brand3}
                               alt="Brand Logo"
+                              style={{ width: "150%", height: "150px" }}
                             />
                           </a>
                         </div>
