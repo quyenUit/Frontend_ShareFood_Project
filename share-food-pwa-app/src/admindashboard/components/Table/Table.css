@@ -24,6 +24,19 @@ th {
   color: #00b5ff !important;
 }
 
+.cellWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
 @media screen and (max-width: 1200px) {
   .Table {
     width: 170%;

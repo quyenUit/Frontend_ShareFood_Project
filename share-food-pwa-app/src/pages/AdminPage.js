@@ -2,7 +2,7 @@ import MainDash from "./../admindashboard/components/MainDash/MainDash";
 import Sidebar from "./../admindashboard/components/Sidebar/Sidebar";
 import RightSide from "./../admindashboard/components/RightSide/RightSide";
 import "./../styles/AdminPage.css";
-
+// import MyAdmin from "../admin/App.js";
 const AdminPage = () => {
   return (
     <div id="admin-dashboard-bg">

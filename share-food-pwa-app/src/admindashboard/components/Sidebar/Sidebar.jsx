@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
-import Logo from "../../imgs/logo.png";
-
-//import { UilEstate } from "@iconscout/react-unicons";
+import Logo from "../../imgs/logo-main.png";
 import { SidebarData } from "../../Data/Data";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
-//import { UilSignOutAtl } from "@iconscout/react-unicons";
+import UilReact from "@iconscout/react-unicons/icons/uil-react";
 
 const Sidebar = () => {
   const [selected, setselected] = useState(0);
@@ -26,7 +24,7 @@ const Sidebar = () => {
     <>
       <div
         className="bars"
-        style={expanded ? { left: "60%" } : { left: "5%" }}
+        style={expanded ? { left: "-60%" } : { left: "5%" }}
         onClick={() => setexpanded(!expanded)}
       >
         <UilBars />
@@ -39,9 +37,6 @@ const Sidebar = () => {
         {/* logo */}
         <div className="logo">
           <img src={Logo} alt="" />
-          <span>
-            ShareF<span>o</span>od
-          </span>
         </div>
 
         {/* menu */}
@@ -59,7 +54,9 @@ const Sidebar = () => {
             );
           })}
 
-          <div className="menuItem">{/* <UilSignOutAtl /> */}</div>
+          <div className="menuItem">
+            <UilReact />
+          </div>
         </div>
       </motion.div>
     </>
