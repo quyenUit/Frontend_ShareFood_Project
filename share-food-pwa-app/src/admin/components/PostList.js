@@ -19,6 +19,8 @@ const PostList = (props) => {
         <TextField source="amount" />
         <DateField source="timeStart" />
         <DateField source="timeEnd" />
+        <EditButton basePath="post" />
+        <DeleteButton basepath="post" />
       </Datagrid>
     </List>
   );

@@ -20,6 +20,7 @@ import ProfileUserPage from "./pages/ProfileUserPage";
 import ProfileUserDetail from "./features/users/ProfileUserDetail";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import Profile from "./pages/Profile";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
           <Route path="uploadpost" element={<PostFood />} />
           <Route path="profile" element={<ProfileUserPage />} />
           <Route path="/profile/edit" element={<ProfileUserDetail />} />
+          <Route path="/prof/:username" element={<Profile />} />
           <Route path="post">
             <Route index element={<MyFoodPage />} />
             <Route path=":postId" element={<FoodDetails />} />
