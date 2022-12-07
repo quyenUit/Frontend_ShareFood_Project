@@ -4,7 +4,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const postList = createAsyncThunk("post/show", async () => {
   try {
     const { data } = await axios.get(
-      "https://backend-sharefood-project.herokuapp.com/post"
+      "http://localhost:3001/post"
     );
     return data;
   } catch (err) {

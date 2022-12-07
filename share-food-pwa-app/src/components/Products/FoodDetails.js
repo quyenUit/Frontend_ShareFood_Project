@@ -9,26 +9,40 @@ import { useDispatch, useSelector } from "react-redux";
 import { ReturnValueZero } from "./ReturnValueZero";
 import { useState } from "react";
 import { useNotification } from "use-toast-notification";
+import { apiUrl } from "../constants/apiURL";
+import axios from "axios";
 
 const FoodDetails = () => {
   const {postId} = useParams();
-  const post = useSelector((state) => getPostId(state, Number(postId)));
+  const post = useSelector((state) => getPostId(state, postId));
+  console.log(post);
   const date = new Date(post.timeStart);
   const dateEnd = new Date(post.timeEnd);
+  const {userInfo} = useSelector((state) => state.user)
   const timeStart =  (date.getHours() + ":" + ReturnValueZero(date.getMinutes())+ "  -  " + dateEnd.getHours() + ":" + ReturnValueZero(dateEnd.getMinutes())).toString();
   const [amount, setAmount] = useState(null);
+  const [note, setNote] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const notification = useNotification();
-  const TakeOrder = () => {
+  const TakeOrder = async() => {
     try{
-      dispatch(updateOrderPost({id: post._id, amount: post.amount - Number(amount)})).unwrap()
-      notification.show({
-        message: 'Bạn đã yêu cầu thành công', 
-        title: 'Thành công',
-        variant: 'success'
+      const response = await axios.post(`${apiUrl}/order`, {
+        amount: amount,
+        userId: userInfo._id,
+        postId: post._id,
+        userPostEmail: post.email,
+        note: note,
+        status: 'Pending'
       })
-      navigate("/")
+      if(response.status === 200){
+        notification.show({
+          message: 'Bạn đã yêu cầu thành công', 
+          title: 'Thành công',
+          variant: 'success'
+        })
+        navigate("/")
+      }
     }catch(err){
       console.error('Failed to save the post', err)
     }
@@ -144,11 +158,11 @@ const FoodDetails = () => {
                 className="mb-3"
                 controlId="exampleForm.ControlTextarea1"
               >
-                <Form.Label>
+                <Form.Label className="order-note">
                   <i>Thêm ghi chú cho quán (Không bắt buộc)</i>
                 </Form.Label>
 
-                <Form.Control as="textarea" rows={3} />
+                <Form.Control className="order-note-content" as="textarea" rows={3} onChange={(e) => setNote(e.target.value)}/>
               </Form.Group>
             </Form>
           </Row>
@@ -159,7 +173,7 @@ const FoodDetails = () => {
             </Col>
           </Row>
           <Row>
-            <Col lg="12" className="d-flex justify-content-center">
+            <Col lg="12" className="d-flex justify-content-center button-order-food">
               <Button onClick={TakeOrder}>
                 Gửi yêu cầu
               </Button>

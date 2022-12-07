@@ -20,6 +20,23 @@ export const updateOrderPost = createAsyncThunk('posts/order', async(initialPost
     }
 })
 
+export const getPost = (state, email) => {
+    return state.post.post.filter((item) =>{
+        if(item.email !== email){
+            return item
+        }
+    })
+}
+
+export const getPostManage = (state, postId, email) => {
+    return state.post.post.filter((item) => {
+        if(item._id === postId && item.email === email){
+            return item;
+        }
+    })
+}
+
+
 const postSlice = createSlice({
     name: 'post',
     initialState,
@@ -53,7 +70,7 @@ export default postSlice.reducer
 export const {resetStatus} = postSlice.actions
 export const getPostStatus = (state) => state.post.status
 export const getPostId = (state, postId) => 
-    state.post.post.find(post => post.id === postId)
+    state.post.post.find(post => post._id === postId)
 
-export const getUserPostId = (state, userId) =>
-    state.post.post.filter(post => post.email === userId)
+export const getUserPostId = (state, email) => 
+    state.post.post.filter(post => post.email === email)

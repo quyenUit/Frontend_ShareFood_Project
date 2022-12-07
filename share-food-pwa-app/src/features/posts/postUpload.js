@@ -9,7 +9,7 @@ export const postUpload = createAsyncThunk(
   ) => {
     try {
       const { data } = await axios.post(
-        "https://backend-sharefood-project.herokuapp.com/uploadpost",
+        "http://localhost:3001/uploadpost",
         {
           name,
           type,

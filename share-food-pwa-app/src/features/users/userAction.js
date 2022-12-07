@@ -6,7 +6,7 @@ export const userLogin = createAsyncThunk(
   async ({ username, password }, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(
-        "https://backend-sharefood-project.herokuapp.com/signup",
+        "http://localhost:3001/signup",
         {
           username,
           password,
