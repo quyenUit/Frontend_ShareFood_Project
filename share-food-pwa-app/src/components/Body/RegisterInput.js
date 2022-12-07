@@ -22,8 +22,7 @@ const RegisterInput = () => {
   const navigate = useNavigate();
   const HandleSubmit = async (event) => {
     event.preventDefault();
-    ////http://localhost:3001/signup
-    //https://agriculture-app12-api.herokuapp.com/signup
+
     if (Password === Password1) {
       await axios
         .post("http://localhost:3001/register", {

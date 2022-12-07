@@ -26,6 +26,8 @@
 
 .uploadpost-button{
   margin: 2rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .uploadpost-button a{
@@ -43,5 +45,5 @@
 }
 
 .myfood-item{
-  background-color: #fcfefe;
+  padding: 2rem;
 }

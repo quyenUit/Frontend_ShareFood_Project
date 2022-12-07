@@ -4,14 +4,17 @@ import { postList } from '../../features/posts/postList';
 import CardFood from './CardFood'
 import { Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { getPost } from '../../features/posts/postSlice';
 
 const CardFoodList = () => {
-    const {post} = useSelector((state) => state.post);
+    const {userInfo} = useSelector((state) => state.user)
+    const posts = useSelector((state) => getPost(state, userInfo.email));
+    
     return (
         <div className='d-flex'>
             <Row className='row-food-container'>
             {
-                post.map((item, idx) => {
+                posts.map((item, idx) => {
                     if(idx < 9){
                         return (
                             <div className='col-lg-4'>

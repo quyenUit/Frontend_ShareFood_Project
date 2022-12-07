@@ -1,5 +1,6 @@
+import ProfileUser from "../components/Body/ProfileUser";
 import React from "react";
-import ProfileUser from "../features/users/ProfileUser";
+
 
 const ProfileUserPage = () => {
   return <ProfileUser />;
