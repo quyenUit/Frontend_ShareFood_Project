@@ -133,64 +133,14 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood3"
-                              value="Phở"
-                              onChange={(e) => setType(e.target.value)}
-                            />
-                            <label
-                              className="form-check-label"
-                              for="gridRadios3"
-                            >
-                              Phở
-                            </label>
-                          </div>
-                        </Col>
-                        <Col xs={4}>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="radio"
-                              name="gridRadios"
-                              id="typefood1"
                               value="Thực phẩm ăn liền"
                               onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
-                              for="gridRadios1"
-                            >
-                              Thực phẩm ăn liền
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="radio"
-                              name="gridRadios"
-                              id="typefood2"
-                              value="Thực phẩm khô"
-                              onChange={(e) => setType(e.target.value)}
-                            />
-                            <label
-                              className="form-check-label"
-                              for="gridRadios2"
-                            >
-                              Thực phẩm khô
-                            </label>
-                          </div>
-                          <div className="form-check disabled">
-                            <input
-                              className="form-check-input"
-                              type="radio"
-                              name="gridRadios"
-                              id="typefood3"
-                              value="Rau"
-                              onChange={(e) => setType(e.target.value)}
-                            />
-                            <label
-                              className="form-check-label"
                               for="gridRadios3"
                             >
-                              Rau
+                              Thực phẩm ăn liền
                             </label>
                           </div>
                         </Col>
@@ -201,14 +151,14 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood1"
-                              value="Thịt"
+                              value="Thực phẩm khô"
                               onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
                               for="gridRadios1"
                             >
-                              Thịt
+                              Thực phẩm khô
                             </label>
                           </div>
                           <div className="form-check">
@@ -217,14 +167,14 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood2"
-                              value="Cá"
+                              value="Rau"
                               onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
                               for="gridRadios2"
                             >
-                              Cá
+                              Rau
                             </label>
                           </div>
                           <div className="form-check disabled">
@@ -233,14 +183,64 @@ const PostFood = () => {
                               type="radio"
                               name="gridRadios"
                               id="typefood3"
-                              value="Thực phẩm thiết yếu"
+                              value="Thịt"
                               onChange={(e) => setType(e.target.value)}
                             />
                             <label
                               className="form-check-label"
                               for="gridRadios3"
                             >
+                              Thịt
+                            </label>
+                          </div>
+                        </Col>
+                        <Col xs={4}>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="radio"
+                              name="gridRadios"
+                              id="typefood1"
+                              value="Cá"
+                              onChange={(e) => setType(e.target.value)}
+                            />
+                            <label
+                              className="form-check-label"
+                              for="gridRadios1"
+                            >
+                              Cá
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="radio"
+                              name="gridRadios"
+                              id="typefood2"
+                              value="Thực phẩm thiết yếu"
+                              onChange={(e) => setType(e.target.value)}
+                            />
+                            <label
+                              className="form-check-label"
+                              for="gridRadios2"
+                            >
                               Thực phẩm thiết yếu
+                            </label>
+                          </div>
+                          <div className="form-check disabled">
+                            <input
+                              className="form-check-input"
+                              type="radio"
+                              name="gridRadios"
+                              id="typefood3"
+                              value="Thực phẩm khác"
+                              onChange={(e) => setType(e.target.value)}
+                            />
+                            <label
+                              className="form-check-label"
+                              for="gridRadios3"
+                            >
+                              Thực phẩm khác
                             </label>
                           </div>
                         </Col>
