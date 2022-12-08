@@ -10,15 +10,15 @@ function CardFood(post) {
       <div className="footer">
         <div className="connections">
           <div className="connection">
-            <Link to={`post/${post.post._id}`}>
-              <Link to={`post/${post.post._id}`}>
+            <Link to={`/post/${post.post._id}`}>
+              <Link to={`/post/${post.post._id}`}>
                 <img style={{ width: "2.2rem" }} src={search}></img>
               </Link>
             </Link>
           </div>
         </div>
         <div>
-          <Link to={`post/${post.post._id}`}>
+          <Link to={`/post/${post.post._id}`}>
             <svg id="curve">
               <path
                 id="p"

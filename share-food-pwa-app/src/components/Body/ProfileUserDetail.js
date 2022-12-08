@@ -6,7 +6,7 @@ import imgNotFound from "../../images/orca.gif";
 import "../../styles/ProfileUserDetail.css";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "./userSlice";
+import { logout } from "../../features/users/userSlice";
 
 const ProfileUserDetail = () => {
   const { userInfo } = useSelector((state) => state.user);
