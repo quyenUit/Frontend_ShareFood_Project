@@ -8,23 +8,6 @@ const initialState = {
   error: null,
 };
 
-export const updateOrderPost = createAsyncThunk(
-  "posts/order",
-  async (initialPost) => {
-    const { id } = initialPost;
-
-    try {
-      const response = await axios.put(
-        `http://localhost:3001/post/update/:${id}`,
-        initialPost
-      );
-      return response.data;
-    } catch (err) {
-      return initialPost;
-    }
-  }
-);
-
 export const getPost = (state, email) => {
     return state.post.post.filter((item) =>{
         if(item.email !== email){
@@ -73,7 +56,7 @@ export default postSlice.reducer
 export const {resetStatus} = postSlice.actions
 export const getPostStatus = (state) => state.post.status
 export const getPostId = (state, postId) => 
-    state.post.post.find(post => post._id === postId)
+    state.post.post.filter(post => post._id === postId)
 
 export const getUserPostId = (state, email) => 
     state.post.post.filter(post => post.email === email)

@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { fetchNeedOrders, fetchOrders } from "../../features/orders/orderAction";
 
 const LoginInput = () => {
   const loginSuccess = () => toast("Đăng nhập thành công!");
@@ -24,6 +25,8 @@ const LoginInput = () => {
   useEffect(() => {
     if (userInfo) {
       navigate("/");
+      dispatch(fetchOrders(userInfo.email));
+      dispatch(fetchNeedOrders(userInfo._id));
     } else {
       navigate("/login");
     }

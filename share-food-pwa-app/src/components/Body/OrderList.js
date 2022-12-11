@@ -1,12 +1,14 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getOrderManage } from '../../features/orders/orderSlice';
 import OrderFood from './OrderFood';
 import Table from 'react-bootstrap/Table';
+import { fetchOrders } from '../../features/orders/orderAction';
+import { useEffect } from 'react';
 const OrderList = () => {
+    const dispatch = useDispatch();
     const {userInfo} = useSelector((state) => state.user)
-    const orders = useSelector((state) => getOrderManage(state, userInfo.email))
-
+    const {orders} = useSelector((state) => state.order)
     return (
         <div className='manage-order'>
             <h3>Danh sách yêu cầu</h3>

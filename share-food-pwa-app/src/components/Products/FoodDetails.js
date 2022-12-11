@@ -15,9 +15,8 @@ import axios from "axios";
 const FoodDetails = () => {
   const {postId} = useParams();
   const post = useSelector((state) => getPostId(state, postId));
-  console.log(post);
-  const date = new Date(post.timeStart);
-  const dateEnd = new Date(post.timeEnd);
+  const date = new Date(post[0].timeStart);
+  const dateEnd = new Date(post[0].timeEnd);
   const {userInfo} = useSelector((state) => state.user)
   const timeStart =  (date.getHours() + ":" + ReturnValueZero(date.getMinutes())+ "  -  " + dateEnd.getHours() + ":" + ReturnValueZero(dateEnd.getMinutes())).toString();
   const [amount, setAmount] = useState(null);
@@ -30,8 +29,8 @@ const FoodDetails = () => {
       const response = await axios.post(`${apiUrl}/order`, {
         amount: amount,
         userId: userInfo._id,
-        postId: post._id,
-        userPostEmail: post.email,
+        postId: post[0]._id,
+        userPostEmail: post[0].email,
         note: note,
         status: 'Pending'
       })
@@ -54,7 +53,7 @@ const FoodDetails = () => {
           <Row className="justify-content-md-center">
             <Col xs={8}>
               <div id="curve-detail" className="card col-lg-3">
-                <img src={post.file} alt="#"></img>
+                <img src={post[0].file} alt="#"></img>
                 <div className="footer">
                   <svg id="curve">
                     <path
@@ -125,8 +124,8 @@ const FoodDetails = () => {
                     />
                   </svg>
                   <div className="info">
-                    <div className="name">{post.name}</div>
-                    <div className="job">{post.location}</div>
+                    <div className="name">{post[0].name}</div>
+                    <div className="job">{post[0].location}</div>
                   </div>
                 </div>
                 <div className="card-blur"></div>
@@ -139,7 +138,7 @@ const FoodDetails = () => {
           <Row className="food-info">
             <h4 className="d-flex">
               <b>Loại thực thẩm:&emsp;</b>
-              {post.type}
+              {post[0].type}
             </h4>
             <h4 className="d-flex">
               <b>Thời gian cho:&emsp;</b>
@@ -147,10 +146,10 @@ const FoodDetails = () => {
             </h4>
             <h4 className="d-flex">
               <b>Địa chỉ:&emsp;</b>
-              {post.location}
+              {post[0].location}
             </h4>
             <h4 className="d-flex">
-              <b>Số lượng cho:&emsp;</b>{post.amount}
+              <b>Số lượng cho:&emsp;</b>{post[0].amount}
             </h4>
 
             <Form>

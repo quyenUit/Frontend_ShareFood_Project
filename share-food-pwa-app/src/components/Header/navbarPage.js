@@ -12,7 +12,7 @@ import notification from "../../images/bell.png";
 import Footers from "../Footer/Footers";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/users/userSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchFood from "../Body/Utils/SearchFood";
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
@@ -31,6 +31,11 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
 function NavbarPage() {
   const { userInfo } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const Logout = () => {
+    navigate("/");
+    dispatch(logout());
+  }
   return (
     <>
       <div className="navbar-item-all">
@@ -63,7 +68,7 @@ function NavbarPage() {
                         </Link>
                       </Col>
                       <Col lg="2" className="nav-item-all">
-                        <Link className="nav-item" to="post">
+                        <Link className="nav-item" to="/mygetfood">
                           Thực phẩm nhận được
                         </Link>
                       </Col>
@@ -104,7 +109,7 @@ function NavbarPage() {
                             </Dropdown.Item>
                             <Dropdown.Item
                               eventKey="1"
-                              onClick={() => dispatch(logout())}
+                              onClick={Logout}
                             >
                               Log out
                             </Dropdown.Item>
