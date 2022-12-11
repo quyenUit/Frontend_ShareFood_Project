@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Montserrat:wght@300&display=swap');
+
+.status-order-food{
+    margin: 2rem;
+}
+
+.status-order-food .col-lg-2{
+    background-color: #F3EFE0;
+    border-radius: 3rem 0 0 3rem;
+}
+
+.status-order-food .col-lg-4{
+    background-color: #FAF8F1;
+    border-radius: 0 3rem 3rem 0;
+    padding: 1rem 3rem;
+}
+
+.orderstatus-image img{
+    width: 100%;
+    padding: 1rem;
+}
+
+.status-accpeted{
+    background-color: #62B6B7;
+    padding: 0.3rem;
+    margin-left: 1rem;
+    border-radius: 1rem;
+}
+
+.orderstatus-description p{
+    font-family: 'Montserrat', sans-serif;
+}

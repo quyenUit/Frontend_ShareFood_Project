@@ -1,5 +1,6 @@
 import { fetchOrders } from "./orderAction"
 import { createSlice } from "@reduxjs/toolkit"
+import { fetchNeedOrders } from "./orderAction"
 const initialState = {
     orders: null,
     status: 'idle',
@@ -25,6 +26,9 @@ const orderSlice = createSlice({
         .addCase(fetchOrders.rejected, (state, action) => {
           state.status = 'failed'
           state.error = action.error.message
+        })
+        .addCase(fetchNeedOrders.fulfilled, (state, action) => {
+          state.needOrders = action.payload
         })
     }
   })

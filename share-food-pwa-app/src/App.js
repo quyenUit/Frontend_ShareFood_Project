@@ -27,7 +27,6 @@ import { fetchOrders } from "./features/orders/orderAction";
 function App() {
   const dispatch = useDispatch();
   dispatch(postList());
-  dispatch(fetchOrders());
   dispatch(allUserFetch());
 
   const persistor = persistStore(store);

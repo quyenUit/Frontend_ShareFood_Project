@@ -7,14 +7,15 @@ import { Link } from "react-router-dom";
 import { getPost } from "../../features/posts/postSlice";
 
 const CardFoodList = () => {
-  const { userInfo } = useSelector((state) => state.user);
-  const posts = useSelector((state) => getPost(state, userInfo.email));
+
+  const {post} = useSelector((state) => state.post);
+
 
   return (
     <div className="d-flex">
       <Row className="row-food-container">
-        {posts.map((item, idx) => {
-          if (idx < 20) {
+        {post.map((item, idx) => {
+          if (idx < 9) {
             return (
               <div className="col-lg-4">
                 <CardFood post={item} />
