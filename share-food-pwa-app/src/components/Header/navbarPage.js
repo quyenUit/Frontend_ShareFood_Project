@@ -14,6 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/users/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import SearchFood from "../Body/Utils/SearchFood";
+import NotificationNavbar from "./NotificationNavbar";
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
     href={ref}
@@ -28,6 +29,20 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   </a>
 ));
 
+const NotifyToggle = React.forwardRef(({ children, onClick }, ref) => (
+  <a
+    href={ref}
+    style={{ textDecoration: "none" }}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+  >
+    {children}
+    <img className="image-item item-left" src={notification} alt="buying"></img>
+  </a>
+));
+
 function NavbarPage() {
   const { userInfo } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -36,6 +51,8 @@ function NavbarPage() {
     navigate("/");
     dispatch(logout());
   }
+  const {needOrders} = useSelector((state) => state.order);
+
   return (
     <>
       <div className="navbar-item-all">
@@ -83,13 +100,16 @@ function NavbarPage() {
                         </Link>
                       </Col>
                       <Col lg="2" className="d-flex">
-                        <Nav.Item>
-                          <img
-                            className="image-item item-left"
-                            src={notification}
-                            alt="buying"
-                          ></img>
-                        </Nav.Item>
+                        <Dropdown align="end">
+                          <Dropdown.Toggle
+                            id="dropdown-custom-components"
+                            as={NotifyToggle}
+                          ></Dropdown.Toggle>
+                            <NotificationNavbar needOrders={needOrders} />
+                            <div className="count-notification">
+                              <p className="position-relative d-flex justify-content-center">{needOrders.length}</p>
+                            </div>
+                          </Dropdown>
                         <Dropdown align="end">
                           <Dropdown.Toggle
                             id="dropdown-custom-components"
