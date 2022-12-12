@@ -15,7 +15,6 @@ import { useDispatch } from "react-redux";
 import { postList } from "./features/posts/postList";
 import store from "./app/store";
 import Search from "./pages/Search";
-import AdminPage from "./pages/AdminPage";
 import ProfileUserPage from "./pages/ProfileUserPage";
 import ProfileUserDetail from "./components/Body/ProfileUserDetail";
 import { PersistGate } from "redux-persist/integration/react";
@@ -23,6 +22,8 @@ import { persistStore } from "redux-persist";
 import Profile from "./pages/Profile";
 import { allUserFetch } from "./features/allUsers/allUserFetch";
 import { fetchOrders } from "./features/orders/orderAction";
+import AdminPage from "./pages/AdminPage";
+import UserList from "./Admin/components/Users";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,7 +35,6 @@ function App() {
   return (
     <PersistGate persistor={persistor}>
       <Routes>
-        <Route path="admin" element={<AdminPage />} />
         <Route path="/" element={<NavbarPage />}>
           <Route index element={<HomePage />} />
           <Route path="myfood" element={<MyFoodPage />} />
@@ -53,6 +53,7 @@ function App() {
             <Route path=":postId" element={<FoodDetails />} />
           </Route>
         </Route>
+        <Route path="/admin" element={<UserList />}></Route>
       </Routes>
     </PersistGate>
   );

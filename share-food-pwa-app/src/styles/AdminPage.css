@@ -1,4 +1,4 @@
-#admin-dashboard-bg {
+:root {
   --yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
   --orange: #fca61f;
   --black: #242d49;
@@ -11,7 +11,7 @@
   --activeItem: #f799a354;
 }
 
-.Dashboard-App {
+.App-admin {
   padding: 0.5rem 3.5rem;
   color: var(--black);
   background: linear-gradient(

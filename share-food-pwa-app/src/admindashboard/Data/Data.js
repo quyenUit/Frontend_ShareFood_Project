@@ -5,8 +5,9 @@ import {
   UilUsersAlt,
   UilPackage,
   UilChart,
+  //UilSignOutAlt,
 } from "@iconscout/react-unicons";
-import { Link } from "react-router-dom";
+
 // Analytics Cards imports
 import { UilUsdSquare, UilMoneyWithdrawal } from "@iconscout/react-unicons";
 //import { keyboard } from "@testing-library/user-event/dist/keyboard";
@@ -16,30 +17,32 @@ import img1 from "../imgs/img1.png";
 import img2 from "../imgs/img2.png";
 import img3 from "../imgs/img3.png";
 
-const link = <Link to="/login" />;
 // Sidebar Data
 export const SidebarData = [
   {
     icon: UilEstate,
     heading: "Dashboard",
-    link: link,
-  },
-  {
-    icon: UilUsersAlt,
-    heading: "Người dùng",
+    path: "/admin",
   },
   {
     icon: UilClipboardAlt,
     heading: "Đơn hàng",
+    path: "orders",
   },
-
+  {
+    icon: UilUsersAlt,
+    heading: "Người dùng",
+    path: "customers",
+  },
   {
     icon: UilPackage,
     heading: "Bài đăng",
+    path: "products",
   },
   {
     icon: UilChart,
-    heading: "Thống kê",
+    heading: "Đăng xuất",
+    path: "logout",
   },
 ];
 
