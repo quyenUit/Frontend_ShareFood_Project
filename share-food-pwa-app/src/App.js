@@ -11,11 +11,10 @@ import MyGetFoodPage from "./pages/MyGetFood";
 import FollowingPage from "./pages/Following";
 import FollowerPage from "./pages/Follower";
 import PostFood from "./components/Body/PostFood";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { postList } from "./features/posts/postList";
 import store from "./app/store";
 import Search from "./pages/Search";
-import AdminPage from "./pages/AdminPage";
 import ProfileUserPage from "./pages/ProfileUserPage";
 import ProfileUserDetail from "./components/Body/ProfileUserDetail";
 import { PersistGate } from "redux-persist/integration/react";
@@ -23,8 +22,17 @@ import { persistStore } from "redux-persist";
 import Profile from "./pages/Profile";
 import { allUserFetch } from "./features/allUsers/allUserFetch";
 import { fetchOrders } from "./features/orders/orderAction";
+import AdminPage from "./pages/AdminPage";
+import UserList from "./Admin/components/admin-users/Users";
+import FoodList from "./Admin/components/admin-post/PostFoods";
+import AddEdit from "./Admin/components/admin-users/AddEdit";
+import EditPostFood from "./Admin/components/admin-post/EditPostFood";
+import Menu from "./Admin/components/Menu";
+import Orders from "./Admin/components/admin-order/Orders";
+import Charts from "./Admin/components/Charts";
 
 function App() {
+  const { userInfo } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   dispatch(postList());
   dispatch(allUserFetch());
@@ -33,7 +41,6 @@ function App() {
   return (
     <PersistGate persistor={persistor}>
       <Routes>
-        <Route path="admin" element={<AdminPage />} />
         <Route path="/" element={<NavbarPage />}>
           <Route index element={<HomePage />} />
           <Route path="myfood" element={<MyFoodPage />} />
@@ -51,6 +58,14 @@ function App() {
             <Route index element={<MyFoodPage />} />
             <Route path=":postId" element={<FoodDetails />} />
           </Route>
+        </Route>
+        <Route path="/admin" element={<Menu />}>
+          <Route index element={<Charts />} />
+          <Route path="/admin/users" element={<UserList />} />
+          <Route path="/admin/users/update/:id" element={<AddEdit />} />
+          <Route path="/admin/posts" element={<FoodList />} />
+          <Route path="/admin/posts/update/:id" element={<EditPostFood />} />
+          <Route path="/admin/orders" element={<Orders />} />
         </Route>
       </Routes>
     </PersistGate>

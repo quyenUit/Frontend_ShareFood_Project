@@ -24,19 +24,6 @@ th {
   color: #00b5ff !important;
 }
 
-.cellWrapper {
-  display: flex;
-  align-items: center;
-}
-
-.image {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  margin-right: 10px;
-  object-fit: cover;
-}
-
 @media screen and (max-width: 1200px) {
   .Table {
     width: 170%;
@@ -52,4 +39,20 @@ th {
     align-items: center;
     width: 23rem;
   }
+}
+
+.ad-users {
+  margin: 50px;
+  border: 3px solid burlywood;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 5px 10px #c5c3c3;
+}
+
+.User-List {
+  font-size: 36px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 600;
+  color: burlywood;
 }
