@@ -1,0 +1,14 @@
+.navbar {
+  background-color: rgb(249, 215, 166);
+}
+
+.nav-link:hover {
+  background-color: darkgoldenrod;
+}
+
+.nav-link {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: darkgoldenrod;
+}

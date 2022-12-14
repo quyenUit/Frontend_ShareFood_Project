@@ -3,22 +3,22 @@ import { Link } from "react-router-dom";
 import cardFood from "../../images/cardfood-1.jpg";
 import search from "../../images/search.png";
 
-function CardFood(post) {
+function CardFood({post}) {
   return (
     <div id="curve" class="card">
-      <img src={post.post.file}></img>
+      <img src={post.file}></img>
       <div className="footer">
         <div className="connections">
           <div className="connection">
-            <Link to={`/post/${post.post._id}`}>
-              <Link to={`/post/${post.post._id}`}>
+            <Link to={`/post/${post._id}`}>
+              <Link to={`/post/${post._id}`}>
                 <img style={{ width: "2.2rem" }} src={search}></img>
               </Link>
             </Link>
           </div>
         </div>
         <div>
-          <Link to={`/post/${post.post._id}`}>
+          <Link to={`/post/${post._id}`}>
             <svg id="curve">
               <path
                 id="p"
@@ -90,8 +90,8 @@ function CardFood(post) {
           </Link>
         </div>
         <div className="info">
-          <div className="name">{post.post.name}</div>
-          <div className="job">{post.post.location}</div>
+          <div className="name">{post.name}</div>
+          <div className="job">{post.location}</div>
         </div>
       </div>
       <div className="card-blur"></div>

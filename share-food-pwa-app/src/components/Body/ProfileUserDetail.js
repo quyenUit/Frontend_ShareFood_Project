@@ -84,7 +84,7 @@ const ProfileUserDetail = () => {
                               <input
                                 type="text"
                                 className="form-control"
-                                value={userInfo.username}
+                                // value={userInfo.username}
                                 id="username"
                                 name="username"
                                 onChange={(e) => {
@@ -98,7 +98,7 @@ const ProfileUserDetail = () => {
                               <input
                                 type="email"
                                 className="form-control"
-                                // value={userInfo.email}
+                                value={userInfo.email}
                                 id="email"
                                 name="email"
                                 onChange={(e) => {

@@ -40,3 +40,19 @@ th {
     width: 23rem;
   }
 }
+
+.ad-orders {
+  margin: 50px;
+  border: 3px solid burlywood;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 5px 10px #c5c3c3;
+}
+
+.Order-List {
+  font-size: 36px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 600;
+  color: burlywood;
+}
