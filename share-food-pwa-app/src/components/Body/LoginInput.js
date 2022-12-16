@@ -24,9 +24,14 @@ const LoginInput = () => {
 
   useEffect(() => {
     if (userInfo) {
-      navigate("/");
-      dispatch(fetchOrders(userInfo.email));
-      dispatch(fetchNeedOrders(userInfo._id));
+      if(userInfo.Admin)
+      {
+        navigate("/admin");
+      }else{
+        navigate("/");
+        dispatch(fetchOrders(userInfo.email));
+        dispatch(fetchNeedOrders(userInfo._id));
+      }
     } else {
       navigate("/login");
     }
