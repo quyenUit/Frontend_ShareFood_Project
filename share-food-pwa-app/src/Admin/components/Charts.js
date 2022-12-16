@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Chart from "react-apexcharts";
 import { Container, Row } from "react-bootstrap";
+import { apiUrl } from "../../components/constants/apiURL";
 
 const Charts = () => {
   const [order, setOrder] = useState([]);
@@ -12,7 +13,8 @@ const Charts = () => {
     const userId = [];
 
     axios
-      .get("http://localhost:3001/orders")
+      // "http://localhost:3001/orders"
+      .get(`${apiUrl}/orders`)
       .then((response) => {
         console.log("response", response);
         response.data.map((item) => {

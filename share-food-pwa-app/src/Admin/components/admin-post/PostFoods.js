@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import axios from "axios";
 import "./PostFood.css";
+import { apiUrl } from "../../../components/constants/apiURL";
 
 const PostFoods = () => {
   const [foods, setFoods] = useState([]);
@@ -13,7 +14,10 @@ const PostFoods = () => {
   }, []);
 
   const getFoods = async () => {
-    const response = await axios.get("http://localhost:3001/foods/list");
+    const response = await axios.get(
+      // "http://localhost:3001/foods/list"
+      `${apiUrl}/foods/list`
+    );
     if (response.status === 200) {
       setFoods(response.data);
     }
@@ -26,7 +30,8 @@ const PostFoods = () => {
       window.confirm("Are you sure that you wanted to delete that user record")
     ) {
       const response = await axios.delete(
-        `http://localhost:3001/foods/delete/${_id}`
+        //`http://localhost:3001/foods/delete/${_id}`
+        `${apiUrl}/foods/delete/${_id}`
       );
       if (response.status === 200) {
         toast.success(response.setFoods);

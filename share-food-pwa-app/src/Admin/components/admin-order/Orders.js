@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Orders.css";
+import { apiUrl } from "../../../components/constants/apiURL";
 
 const Orders = () => {
   const [data, setData] = useState([]);
@@ -13,7 +14,10 @@ const Orders = () => {
   }, []);
 
   const getOrders = async () => {
-    const response = await axios.get("http://localhost:3001/orders");
+    const response = await axios.get(
+      // "http://localhost:3001/orders"
+      `${apiUrl}/orders`
+    );
     if (response.status === 200) {
       setData(response.data);
     }

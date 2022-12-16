@@ -7,9 +7,7 @@ import { Link } from "react-router-dom";
 import { getPost } from "../../features/posts/postSlice";
 
 const CardFoodList = () => {
-
-  const {post} = useSelector((state) => state.post);
-
+  const { post } = useSelector((state) => state.post);
 
   return (
     <div className="d-flex">

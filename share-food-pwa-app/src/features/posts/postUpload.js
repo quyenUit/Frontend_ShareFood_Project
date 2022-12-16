@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { apiUrl } from "../../components/constants/apiURL";
 
 export const postUpload = createAsyncThunk(
   "post/upload",
@@ -8,7 +9,8 @@ export const postUpload = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-      const { data } = await axios.post("http://localhost:3001/uploadpost", {
+      // "http://localhost:3001/uploadpost"
+      const { data } = await axios.post(`${apiUrl}/uploadpost`, {
         name,
         type,
         dateStart,

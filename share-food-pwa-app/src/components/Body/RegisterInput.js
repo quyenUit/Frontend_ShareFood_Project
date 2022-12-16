@@ -8,6 +8,7 @@ import BrandLogin2 from "../../images/brand-login3.jpg";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { apiUrl } from "../constants/apiURL";
 
 const RegisterInput = () => {
   const registerSuccess = () => toast("Đăng ký thành công!");
@@ -25,7 +26,8 @@ const RegisterInput = () => {
 
     if (Password === Password1) {
       await axios
-        .post("http://localhost:3001/register", {
+        // "http://localhost:3001/register"
+        .post(`${apiUrl}/register`, {
           username: Username,
           email: Email,
           password: Password,
