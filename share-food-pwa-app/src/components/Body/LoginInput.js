@@ -24,6 +24,7 @@ const LoginInput = () => {
 
   useEffect(() => {
     if (userInfo) {
+      console.log(userInfo);
       if(userInfo.Admin)
       {
         navigate("/admin");
