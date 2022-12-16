@@ -8,9 +8,8 @@ import "./Menu.css";
 const Menu = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const Logout = () => {
+  const LogoutAdmin = () => {
     navigate("/");
-    dispatch(logout());
   };
   return (
     <>
@@ -68,7 +67,7 @@ const Menu = () => {
                   Search
                 </button>
               </form>
-              <button className="btn btn-outline-success" onClick={Logout}>
+              <button className="btn btn-outline-success" onClick={LogoutAdmin}>
                 Logout
               </button>
             </div>
