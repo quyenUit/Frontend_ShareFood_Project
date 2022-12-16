@@ -47,8 +47,6 @@ function App() {
           <Route path="mygetfood" element={<MyGetFoodPage />} />
           <Route path="following" element={<FollowingPage />} />
           <Route path="follower" element={<FollowerPage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<Register />} />
           <Route path="search" element={<Search />} />
           <Route path="uploadpost" element={<PostFood />} />
           <Route path="profile" element={<ProfileUserPage />} />
@@ -59,6 +57,8 @@ function App() {
             <Route path=":postId" element={<FoodDetails />} />
           </Route>
         </Route>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/admin" element={<Menu />}>
           <Route index element={<Charts />} />
           <Route path="users" element={<UserList />} />
