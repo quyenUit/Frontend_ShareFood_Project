@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { getPostStatus } from "../../features/posts/postSlice";
 import { resetStatus } from "../../features/posts/postSlice";
 import { useNotification } from "use-toast-notification";
+
 const PostFood = () => {
   const [nameFood, setNameFood] = useState("");
   const [type, setType] = useState("");

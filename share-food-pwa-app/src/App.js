@@ -61,11 +61,11 @@ function App() {
         </Route>
         <Route path="/admin" element={<Menu />}>
           <Route index element={<Charts />} />
-          <Route path="/admin/users" element={<UserList />} />
-          <Route path="/admin/users/update/:id" element={<AddEdit />} />
-          <Route path="/admin/posts" element={<FoodList />} />
-          <Route path="/admin/posts/update/:id" element={<EditPostFood />} />
-          <Route path="/admin/orders" element={<Orders />} />
+          <Route path="users" element={<UserList />} />
+          <Route path="users/update/:id" element={<AddEdit />} />
+          <Route path="posts" element={<FoodList />} />
+          <Route path="posts/update/:id" element={<EditPostFood />} />
+          <Route path="orders" element={<Orders />} />
         </Route>
       </Routes>
     </PersistGate>
