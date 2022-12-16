@@ -51,6 +51,7 @@ function NavbarPage() {
     navigate("/");
     dispatch(logout());
   }
+
   const {needOrders} = useSelector((state) => state.order);
 
   return (
