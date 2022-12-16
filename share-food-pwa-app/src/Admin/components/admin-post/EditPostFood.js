@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPostId, updateOrderPost } from "../../../features/posts/postSlice";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { apiUrl } from "../../../components/constants/apiURL";
 
 const EditPostFood = () => {
   const [name, setNameFood] = useState("");
@@ -21,7 +22,8 @@ const EditPostFood = () => {
   const UpdatePost = async (post, event) => {
     event.preventDefault();
     await axios
-      .put(`http://localhost:3001/foods/${post._id}`, {
+      // `http://localhost:3001/foods/${post._id}`
+      .put(`${apiUrl}/foods/${post._id}`, {
         name: name,
         location: location,
         amount: amount,

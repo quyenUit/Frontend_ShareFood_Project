@@ -7,6 +7,8 @@ import { toast } from "react-toastify";
 import { getUserStatus } from "../../../features/users/userSlice";
 import { setDefaultHandler } from "workbox-routing";
 import { Link } from "react-router-dom";
+import { apiUrl } from "../../../components/constants/apiURL";
+
 const Users = () => {
   const [data, setData] = useState([]);
 
@@ -15,7 +17,8 @@ const Users = () => {
   }, []);
 
   const getUsers = async () => {
-    const response = await axios.get("http://localhost:3001/users/list");
+    //"http://localhost:3001/users/list"
+    const response = await axios.get(`${apiUrl}/users/list`);
     if (response.status === 200) {
       setData(response.data);
     }
@@ -28,7 +31,8 @@ const Users = () => {
       window.confirm("Are you sure that you wanted to delete that user record")
     ) {
       const response = await axios.delete(
-        `http://localhost:3001/users/delete/${_id}`
+        //`http://localhost:3001/users/delete/${_id}`
+        `${apiUrl}/users/delete/${_id}`
       );
       if (response.status === 200) {
         toast.success(response.setData);

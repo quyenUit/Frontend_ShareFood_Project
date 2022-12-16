@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./AddEdit.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { apiUrl } from "../../../components/constants/apiURL";
 
 const AddEdit = () => {
   const { userInfo } = useSelector((state) => state.user);
@@ -15,7 +16,8 @@ const AddEdit = () => {
   const HandleSaveInfoUser = async (event) => {
     event.preventDefault();
     await axios
-      .put(`http://localhost:3001/users/${userInfo._id}`, {
+      //`http://localhost:3001/users/${userInfo._id}`
+      .put(`${apiUrl}/users/${userInfo._id}`, {
         username: username,
         address: address,
         phone: phone,

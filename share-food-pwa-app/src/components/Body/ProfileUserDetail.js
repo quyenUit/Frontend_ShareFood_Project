@@ -7,6 +7,7 @@ import "../../styles/ProfileUserDetail.css";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/users/userSlice";
+import { apiUrl } from "../constants/apiURL";
 
 const ProfileUserDetail = () => {
   const { userInfo } = useSelector((state) => state.user);
@@ -23,7 +24,8 @@ const ProfileUserDetail = () => {
     event.preventDefault();
     if (password === password1) {
       await axios
-        .patch(`http://localhost:3001/users/update/${userInfo._id}`, {
+        // `http://localhost:3001/users/update/${userInfo._id}`
+        .patch(`${apiUrl}/users/update/${userInfo._id}`, {
           username: username,
           email: email,
           address: address,

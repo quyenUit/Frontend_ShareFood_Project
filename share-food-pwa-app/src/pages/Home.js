@@ -4,21 +4,12 @@ import Store from "../components/Body/Store";
 import Brands from "../components/Body/Utils/Brands";
 import { postList } from "../features/posts/postList";
 function HomePage() {
-  const {userInfo} = useSelector((state) => state.user)
+  const { userInfo } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   dispatch(postList());
   return (
     <>
-      {
-        userInfo?
-        (
-          <></>
-        )
-        :
-        (
-          <CarouselFood />
-        )
-      }
+      {userInfo ? <></> : <CarouselFood />}
       <Store />
       <Brands />
     </>
