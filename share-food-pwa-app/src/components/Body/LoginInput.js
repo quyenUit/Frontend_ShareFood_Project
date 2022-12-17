@@ -29,9 +29,11 @@ const LoginInput = () => {
       {
         navigate("/admin");
       }else{
-        navigate("/");
         dispatch(fetchOrders(userInfo.email));
         dispatch(fetchNeedOrders(userInfo._id));
+        setTimeout(() => {
+          navigate("/");
+        }, 1000)
       }
     } else {
       navigate("/login");
