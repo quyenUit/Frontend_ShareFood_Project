@@ -1,7 +1,17 @@
-.search-box {
+.search-home-page {
   display: flex;
-  padding: 0 1rem;
-  width: 40%;
+  margin: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 50%;
+}
+
+.section-search {
+  background-color: #dfd3c3;
+}
+
+.search-home-page-result {
+  margin-left: 39vh;
 }
 
 .btn-search {
@@ -9,7 +19,7 @@
 }
 
 .Nav-search-bg {
-  background-color: white;
+  background-color: #dfd3c3;
 }
 
 .food-round-here {

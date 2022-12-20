@@ -10,7 +10,7 @@ const Charts = () => {
 
   useEffect(() => {
     const amount = [];
-    const userId = [];
+    const orderDate = [];
 
     axios
       // "http://localhost:3001/orders"
@@ -20,11 +20,11 @@ const Charts = () => {
         response.data.map((item) => {
           console.log("item", item);
           amount.push(item.orderNumber);
-          userId.push(item.userId);
+          orderDate.push(item.orderDate);
         });
-        setOrder(userId);
+        setOrder(orderDate);
         setData(amount);
-        console.log("amount", amount, userId);
+        console.log("amount", amount, orderDate);
       })
       .catch((e) => {
         alert(e);
@@ -50,8 +50,8 @@ const Charts = () => {
             },
           ]}
           type="line"
-          width={800}
-          height={500}
+          width={1100}
+          height={700}
         />
       </Row>
     </Container>

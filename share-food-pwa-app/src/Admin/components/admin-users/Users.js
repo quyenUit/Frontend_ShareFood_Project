@@ -70,9 +70,9 @@ const Users = () => {
                       <td>{user.address}</td>
                       <td>{user.createdate}</td>
                       <td>
-                        <Link to={`/admin/users/update/${user._id}`}>
+                        {/* <Link to={`/admin/users/update/${user._id}`}>
                           <button className="btn btn-link">Edit</button>
-                        </Link>
+                        </Link> */}
                         <button
                           className="btn btn-link"
                           onClick={() => deleteUser(user._id)}
