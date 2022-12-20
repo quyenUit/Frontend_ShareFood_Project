@@ -33,7 +33,7 @@ const ProfileUser = () => {
                   {" "}
                   <b>{userInfo.username}</b>{" "}
                 </span>
-                <div className="FollowRow">
+                {/* <div className="FollowRow">
                   <div className="Follower">
                     <a href="#!">
                       <b> {userInfo.follower} </b>
@@ -46,7 +46,7 @@ const ProfileUser = () => {
                       Đang theo dõi
                     </a>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="UltiRow">
                   <Link to="/profile/edit">
@@ -91,7 +91,7 @@ const ProfileUser = () => {
         </Container>
       </section>
 
-      <section className="profile-user-section-2">
+      {/* <section className="profile-user-section-2">
         <Container>
           <Row>
             <div className="PaperContainer">
@@ -123,9 +123,9 @@ const ProfileUser = () => {
             </div>
           </Row>
         </Container>
-      </section>
+      </section> */}
 
-      <section className="profile-user-section-3">
+      {/* <section className="profile-user-section-3">
         <Container>
           <Row>
             <div className="PaperContainer">
@@ -161,7 +161,7 @@ const ProfileUser = () => {
             </div>
           </Row>
         </Container>
-      </section>
+      </section> */}
     </div>
   );
 };

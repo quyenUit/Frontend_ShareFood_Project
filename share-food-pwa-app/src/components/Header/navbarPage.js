@@ -50,9 +50,9 @@ function NavbarPage() {
   const Logout = () => {
     navigate("/");
     dispatch(logout());
-  }
+  };
 
-  const {needOrders} = useSelector((state) => state.order);
+  const { needOrders } = useSelector((state) => state.order);
 
   return (
     <>
@@ -106,11 +106,13 @@ function NavbarPage() {
                             id="dropdown-custom-components"
                             as={NotifyToggle}
                           ></Dropdown.Toggle>
-                            <NotificationNavbar needOrders={needOrders} />
-                            <div className="count-notification">
-                              <p className="position-relative d-flex justify-content-center">{needOrders.length}</p>
-                            </div>
-                          </Dropdown>
+                          <NotificationNavbar needOrders={needOrders} />
+                          <div className="count-notification">
+                            <p className="position-relative d-flex justify-content-center">
+                              {needOrders.length}
+                            </p>
+                          </div>
+                        </Dropdown>
                         <Dropdown align="end">
                           <Dropdown.Toggle
                             id="dropdown-custom-components"
@@ -128,10 +130,7 @@ function NavbarPage() {
                                 Profile
                               </Link>
                             </Dropdown.Item>
-                            <Dropdown.Item
-                              eventKey="1"
-                              onClick={Logout}
-                            >
+                            <Dropdown.Item eventKey="1" onClick={Logout}>
                               Log out
                             </Dropdown.Item>
                           </Dropdown.Menu>

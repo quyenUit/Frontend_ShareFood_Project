@@ -27,7 +27,7 @@ const PostFoods = () => {
 
   const deletePostFood = async (_id) => {
     if (
-      window.confirm("Are you sure that you wanted to delete that user record")
+      window.confirm("Are you sure that you wanted to delete that post record")
     ) {
       const response = await axios.delete(
         //`http://localhost:3001/foods/delete/${_id}`
@@ -75,9 +75,9 @@ const PostFoods = () => {
                     <td>{food.email}</td>
                     <td>{food.amount}</td>
                     <td>
-                      <Link to={`/admin/posts/update/${food._id}`}>
+                      {/* <Link to={`/admin/posts/update/${food._id}`}>
                         <button className="btn btn-link">Edit</button>
-                      </Link>
+                      </Link> */}
                       <button
                         className="btn btn-link"
                         onClick={() => deletePostFood(food._id)}

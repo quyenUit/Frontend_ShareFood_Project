@@ -13,7 +13,7 @@ const CardFoodList = () => {
     <div className="d-flex">
       <Row className="row-food-container">
         {post.map((item, idx) => {
-          if (idx < 9) {
+          if (idx < 30) {
             return (
               <div className="col-lg-4">
                 <CardFood post={item} />
