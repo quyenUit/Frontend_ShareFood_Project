@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 const OrderFood = ({ idx, order }) => {
+  const { userInfo } = useSelector((state) => state.user);
   const user = useSelector((state) => getUserById(state, order.userId));
   const date = new Date(order.orderDate).toString();
   const post = useSelector((state) => getPostId(state, order.postId));
@@ -25,7 +26,6 @@ const OrderFood = ({ idx, order }) => {
       orderId: order._id,
       status: 'Success'
     });
-    dispatch(fetchOrders());
     if (acceptOrder.data.success) {
       notification.show({
         message: "Bạn đã duyệt thành công",
@@ -33,6 +33,7 @@ const OrderFood = ({ idx, order }) => {
         variant: "success",
       });
     }
+    dispatch(fetchOrders(userInfo.email));
     setTimeout(() => {
       window.location.reload();
     }, 1500);
@@ -45,7 +46,7 @@ const OrderFood = ({ idx, order }) => {
       status: 'Failed'
     });
 
-    dispatch(fetchOrders());
+    dispatch(fetchOrders(userInfo.email));
     if (acceptOrder.data.success) {
       notification.show({
         message: "Bạn đã duyệt thành công",
@@ -61,7 +62,6 @@ const OrderFood = ({ idx, order }) => {
   return (
         order.status === "Pending"?
           <tr>
-            <td>{idx + 1}</td>
             <td>{user[0].username}</td>
             <td>{user[0].phone}</td>
             <td>{user[0].address}</td>

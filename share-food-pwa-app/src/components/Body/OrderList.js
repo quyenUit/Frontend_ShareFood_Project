@@ -15,7 +15,6 @@ const OrderList = () => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
             <th>User name</th>
             <th>Phone</th>
             <th>Địa chỉ</th>
@@ -27,7 +26,7 @@ const OrderList = () => {
         </thead>
         <tbody>
           {orders.map((order, idx) => (
-            <OrderFood idx={idx} order={order} />
+            <OrderFood order={order} />
           ))}
         </tbody>
       </Table>
