@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import NotificationProvider from "use-toast-notification";
+import { ChakraProvider, theme } from '@chakra-ui/react'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

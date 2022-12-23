@@ -4,9 +4,8 @@ import Store from "../components/Body/Store";
 import Brands from "../components/Body/Utils/Brands";
 import { postList } from "../features/posts/postList";
 import SearchFood from "../components/Body/Utils/SearchFood";
-import Mapgg1 from "./Mapgg1";
-// import Map1 from "../components/Map/Map1";
-
+import Maps from "../components/Body/MapLocation/Map";
+import { ChakraProvider, theme } from '@chakra-ui/react'
 function HomePage() {
   const { userInfo } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -17,7 +16,9 @@ function HomePage() {
       <SearchFood />
       <Store />
       <Brands />
-      <Mapgg1 />
+      <ChakraProvider theme={theme}>
+        <Maps/>
+      </ChakraProvider>
     </>
   );
 }
