@@ -60,7 +60,7 @@ const OrderFood = ({ idx, order }) => {
   };
 
   return (
-        order.status === "Pending"?
+        user[0] && order.status === "Pending"?
           <tr>
             <td>{user[0].username}</td>
             <td>{user[0].phone}</td>
